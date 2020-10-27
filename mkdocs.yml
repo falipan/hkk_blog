@@ -1,1 +1,5 @@
-site_name: My Docs
+site_name: hkk_blog
+pages:
+  [index.md, Home]
+  [about.md, About]
+theme: readthedocs
