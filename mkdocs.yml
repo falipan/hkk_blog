@@ -1,5 +1,5 @@
 site_name: hkk_blog
-pages:
-  [index.md, Home]
-  [about.md, About]
+nav:
+    - Home: index.md
+    - About: hello.md
 theme: readthedocs
