@@ -1,5 +1,2 @@
 site_name: hkk_blog
-nav:
-    - Home: index.md
-    - About: hello.md
 theme: readthedocs
