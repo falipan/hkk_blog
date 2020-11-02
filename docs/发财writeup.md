@@ -1,11 +1,13 @@
-# WEB
+# HXB writeup
+
+## WEB
 
 ### 题目名字不重要反正题挺简单的
 直接传参file=phpinfo，flag被写到环境变量
 
 ![img1](./img/img1.png)
 
-## NewWebsite
+### NewWebsite
 
 扫描目录扫到/admin
 
@@ -18,7 +20,7 @@
 ![img3](./img/img3.png)
 
 
-# CPYPTO
+## CPYPTO
 
 ### 古典美++
 
@@ -27,7 +29,7 @@
 ![img4](./img/img4.png)
 
 
-# pwn
+## pwn
 
 ### pwn_printf
 
@@ -81,9 +83,9 @@ p.interactive()
 
 ![img5](.\img\pwn.png)
 
-# MISC
+## MISC
 
-## 颜文字之谜
+### 颜文字之谜
 
 通过流量分析可以导出index-demo.html
 在源码中发现颜文字
@@ -112,7 +114,7 @@ with open('C:/Users/kai/Desktop/base.txt', 'rb') as f:
 输出内容猜测是摩斯密码，解码后得到flag
 
 
-## passwd
+### passwd
 
 是一道内存取证题
 
@@ -126,13 +128,13 @@ python vol.py -f ./my_mem/passwd.raw --profile=Win7SP1x86_23418 hashdump
 
 CTF密码解码出来是qwer1234，然后MD5就是flag
 
-## 虚实之间
+### 虚实之间
 
 明文攻击，爆出压缩包密码
 ```123%asd!O```
 然后栅栏密码解码得到flag
 
-## 隐藏的秘密
+### 隐藏的秘密
 
 用diskgenius打开可以看到
 
