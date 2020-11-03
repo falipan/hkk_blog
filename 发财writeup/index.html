@@ -198,9 +198,13 @@ p.interactive()
 <p>通过流量分析可以导出index-demo.html
 在源码中发现颜文字</p>
 <p><img alt="img5" src="../img/img5.png" /></p>
-<p>开始以为是颜文字编码，后来发现有base64隐写，用stegsnow可以输出flag样式</p>
-<p>base64隐写脚本</p>
-<pre><code>b64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+<p>分析流量包，导出index文件，发现存在多余的长短不一的空格和base64加密过的颜文字，感觉有隐写
+<img alt="img_space" src="../img/img_space.png" /></p>
+<p>用stegsnow看一下</p>
+<p><img alt="img_stegsnow" src="../img/img_stegsnow.png" /></p>
+<p>那么尝试把文件里面隐藏的base64部分利用起来</p>
+<p>网上找个base64隐写脚本</p>
+<pre><code class="language-python">b64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 with open('C:/Users/kai/Desktop/base.txt', 'rb') as f:
     bin_str = ''
     for line in f.readlines():
@@ -213,32 +217,93 @@ with open('C:/Users/kai/Desktop/base.txt', 'rb') as f:
         print ''.join([chr(int(bin_str[i:i + 8], 2)) for i in xrange(0, len(bin_str), 8)])
 </code></pre>
 <p>结果是key:"lorrie"</p>
-<p>输出内容猜测是摩斯密码，解码后得到flag</p>
+<p>解码看看
+<img alt="img_lorrie" src="../img/img_lorrie.png" /></p>
+<p>flag头和尾是对的，乱码感觉像是编码问题，我们把它导出为16进制试试</p>
+<pre><code class="language-shell">a=`stegsnow  -p &quot;lorrie&quot; index-demo.html `
+echo $a | perl -ne 'printf&quot;%x&quot;, ord for split //'
+</code></pre>
+<p>得到的结果放文件里，再用010导入看看</p>
+<p>默认的ascii编码下依旧是乱码
+<img alt="img_ascii" src="../img/img_ascii.png" /></p>
+<p>我们在 <strong>view -&gt; character setting</strong> 里面把编码换成gbk或者utf试试</p>
+<p>然后发现gbk下的编码能显示正常的字符，我们复制到txt里
+<img alt="img_left" src="../img/img_left.png" /></p>
+<p>发现是 <code>←_←</code> 和 <code>→_→</code> 构成的颜文字</p>
+<p>有可能是二进制，也有可能是摩斯电码
+经队友提醒，应该是国际电报码</p>
+<p>那我们把 <code>→_→</code> 转成 <code>-</code> ，把 <code>←_←</code> 转成 <code>·</code> ，拿去解码试试</p>
+<p><img alt="img_elc" src="../img/img_elc.png" /></p>
+<p>成功拿到flag</p>
 <h3 id="passwd">passwd</h3>
-<p>是一道内存取证题</p>
-<pre><code>python vol.py -f ./my_mem/passwd.raw --profile=Win7SP1x86_23418 hashdump
+<p>是一道内存取证题，题目要求我们去拿到当前用户的密码</p>
+<pre><code class="language-shell">python vol.py -f ./my_mem/passwd.raw --profile=Win7SP1x86_23418 hashdump
 </code></pre>
 <blockquote>
 <p>Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 CTF:1000:aad3b435b51404eeaad3b435b51404ee:0a640404b5c386ab12092587fe19cd02:::</p>
 </blockquote>
-<p>CTF密码解码出来是qwer1234，然后MD5就是flag</p>
+<p>有个叫做CTF的账号，估计就是当前用户了</p>
+<p>CTF密码ntlm查询出来是qwer1234，然后MD5就是flag</p>
 <h3 id="_4">虚实之间</h3>
-<p>明文攻击，爆出压缩包密码
+<p>看上去是明文攻击，但是flag.txt是强加密的，估计明文攻击无效</p>
+<p><img alt="img_zip" src="../img/img_zip.png" /></p>
+<p>干脆字典爆出压缩包密码
 <code>123%asd!O</code>
 然后栅栏密码解码得到flag</p>
 <h3 id="_5">隐藏的秘密</h3>
-<p>用diskgenius打开可以看到</p>
-<p><img alt="img6" src="../img/img6.png" /></p>
-<pre><code>volatility -f 1.vmem --profile=Win2003SP1x86 --profile=系统版本 printkey -K &quot;SAM\Domains\Account\Users\Names&quot;
+<p>查看进程，发现notepad.exe，pid为2440，不过内容是乱码的，估计存在编码问题，那我们干脆把进程导出</p>
+<pre><code class="language-shell">python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 memdump -p 2440 -D ./my_mem/out/hxb
 </code></pre>
-<p>于是导出用户名和密码，批量解MD5，最后尝试密码为<code>NIAIWOMA</code>的账户和密码MD5
+<p>用diskgenius打开导出的dmp文件可以看到</p>
+<p><img alt="img6" src="../img/img6.png" /></p>
+<pre><code class="language-shell">python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 printkey -K &quot;SAM\Domains\Account\Users\Names&quot;
+</code></pre>
+<p>于是导出用户名和密码，批量解NTLM，最后尝试密码为<code>NIAIWOMA</code>的账户和密码MD5
 是flag</p>
+<p>再看一下日志</p>
+<pre><code class="language-shell">python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 evtlogs -D ./my_mem/out/hxb
+
+python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 timeliner &gt; ./my_mem/out/hxb
+</code></pre>
+<p>发现这个电脑权限都是写在用户组里面的，常规用户应该都是<code>S-1-5-18</code>这个用户组的</p>
+<p>但是看不到具体是哪些用户进行的操作，是我太菜了</p>
+<p>复现的时候发现 <code>SAM\Domains\Account\Users\Names</code> 这个注册表目录下存在所有用户，查看用户的键值，可以发现存在一个注册表最后修改的时间</p>
+<p><img alt="img_subkeys" src="../img/img_subkeys.png" /></p>
+<p><img alt="img_regtime" src="../img/img_regtime.png" /></p>
+<p>查看几个用户，发现他们的修改时间都在 14:02 这个时间
+而整个表的最后修改时间是在 14:07 之后，所以只需要把 14:07 修改注册表的用户找出来就行了，搓个脚本</p>
+<pre><code class="language-python"># coding=utf-8
+import os
+
+hide_mem = &quot;../my_mem/hide.vmem&quot;
+payload = 'python ../vol.py -f ../my_mem/hide.vmem --profile=Win2003SP1x86 printkey -K &quot;SAM\\Domains\\Account\\Users\\Names\\{}&quot;'
+# print(payload)
+# list = os.system(&quot;ls ../my_mem/&quot;)
+
+user_list = open(&quot;./user_list.txt&quot;, &quot;r&quot;).read().split()
+# print(user_list)
+
+
+# test = os.system(payload.format(user_list[0]))
+# print(payload.format(user_list[0]))
+
+# print(type(&quot;14:02:09&quot;))
+for i in user_list:
+    test = os.popen(payload.format(i)).readlines()
+    output = &quot;&quot;.join(test)
+    # print(output)
+    if &quot;14:02:09&quot; not in output:
+        print(i)
+</code></pre>
+<p>文件路径需要根据具体情况进行修改
+<img alt="img_AI" src="../img/img_AI.png" /></p>
+<p>十几分钟大概可以出来</p>
 <h2 id="re">RE</h2>
 <h3 id="easy_c">easy_c++</h3>
 <p>简单异或直接脚本跑</p>
-<pre><code>a=&quot;7d21e&lt;e3&lt;:3;9;ji t r#w\&quot;$*{*+*$|,&quot;
+<pre><code class="language-python">a=&quot;7d21e&lt;e3&lt;:3;9;ji t r#w\&quot;$*{*+*$|,&quot;
 b=&quot;&quot;
 for i in range(len(a)):
     b+=chr(ord(a[i])^i)
@@ -247,7 +312,7 @@ print(b)
 <h3 id="easyre">easyre</h3>
 <p>动态调试，一位一位爆出来</p>
 <h3 id="reme">ReMe</h3>
-<pre><code>import hashlib
+<pre><code class="language-python">import hashlib
 
 list = [
  'e5438e78ec1de10a2693f9cffb930d23',
