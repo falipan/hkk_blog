@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>ssh隧道 - hkk_blog</title>
+  <title>docker和phpstorm搭建php开发环境 - hkk_blog</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "ssh\u96a7\u9053";
-    var mkdocs_page_input_path = "ssh\u96a7\u9053.md";
+    var mkdocs_page_name = "docker\u548cphpstorm\u642d\u5efaphp\u5f00\u53d1\u73af\u5883";
+    var mkdocs_page_input_path = "docker\u548cphpstorm\u642d\u5efaphp\u5f00\u53d1\u73af\u5883.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -51,18 +51,14 @@
                     <li class="toctree-l1"><a class="reference internal" href="..">Welcome to hkkblog</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../docker%E5%92%8Cphpstorm%E6%90%AD%E5%BB%BAphp%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">docker和phpstorm搭建php开发环境</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">docker和phpstorm搭建php开发环境</a>
+    <ul class="current">
+    </ul>
                     </li>
                 </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">ssh隧道</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#_1">远程端口转发</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#socks">socks代理</a>
-    </li>
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ssh%E9%9A%A7%E9%81%93/">ssh隧道</a>
                     </li>
                 </ul>
                 <ul>
@@ -90,7 +86,7 @@
     
       
     
-    <li>ssh隧道</li>
+    <li>docker和phpstorm搭建php开发环境</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -101,34 +97,92 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="ssh">ssh隧道</h1>
-<p>ssh隧道常用参数</p>
-<pre><code>-C：压缩传输，提高传输速度
--f ：将ssh传输转入后台执行，不占用当前的shell。
--N：建立静默连接（建立了连接，但是看不到具体的会话）
--g 允许远程主机连接本地用于转发的端口
--L：本地端口转发
--R：远程端口转发
--D：动态转发（socks代理）
--P：指定ssh端口
+                <h1 id="dockerphpstormphp">docker和phpstorm搭建php开发环境</h1>
+<p>首先docker-compose启动php5.6、php7.4、mysql5.6三个容器，并建立连接</p>
+<pre><code>version: '3'
+services:
+    php5.6:
+        image: php:5.6-apache 
+        ports: 
+            - 8000:80 
+        volumes: 
+            [localfile:/var/www/html]
+        links: 
+            - mysql
+        stdin_open: true
+        tty: true
+    php7.4:          
+        image: php:7.4-apache  
+        ports: 
+            - 80:80 
+        volumes: 
+            [localfile:/var/www/html]
+        links: 
+            - mysql 
+        stdin_open: true
+        tty: true
+
+    mysql:
+        image: mysql:5.6
+        environment: 
+            MYSQL_ROOT_PASSWORD: &quot;313807&quot;
+        ports: 
+            - 3306:3306
+
 </code></pre>
-<h3 id="_1">远程端口转发</h3>
+<p>服务起来后</p>
+<p>进入php5.6与php7.4容器更新并安装vim</p>
 <blockquote>
-<p>ssh -NfR remote-ip:remote-port:localhost:local-port root@remoteip</p>
+<p>apt update</p>
+<p>apt install vim</p>
 </blockquote>
-<p>远程sshd_config需要设置</p>
+<p>将php-ini-production复制到php.ini</p>
 <blockquote>
-<p>AllowTcpForwarding yes</p>
-<p>GatewayPorts yes</p>
+<p>cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini</p>
 </blockquote>
-<h3 id="socks">socks代理</h3>
+<p>docker中安装php扩展使用命令</p>
 <blockquote>
-<p>ssh -NfD [localhost]:port root@localhost</p>
+<p>docker-php-ext-install</p>
 </blockquote>
-<p>先在本地实现socks代理，再将socks代理端口通过隧道连接到公网</p>
+<p>php启动扩展</p>
 <blockquote>
-<p>ssh -NfR remote-ip:remote-port:localhost:socks-port root@remoteip</p>
+<p>docker-php-ext-enable</p>
 </blockquote>
+<p>安装mysql与mysqli扩展</p>
+<blockquote>
+<p>docker-php-ext-install mysql</p>
+<p>docker-php-ext-install mysqli</p>
+</blockquote>
+<p>安装xdebug扩展</p>
+<blockquote>
+<p>pecl install xdebug</p>
+<p>pecl install xdebug-2.5.0(5.6需安装此版本)</p>
+</blockquote>
+<p>启动php扩展</p>
+<blockquote>
+<p>docker-php-ext-enable mysql</p>
+<p>docker-php-ext-enable mysqli</p>
+<p>docker-php-ext-enable xdebug</p>
+</blockquote>
+<p>配置php.ini</p>
+<pre><code>echo -e 'xdebug.remote_enable=On
+xdebug.remote_host= [remote_ip]
+xdebug.remote_port=9000
+xdebug.auto_trace=On
+xdebug.collect_vars=On
+xdebug.collect_return=On
+xdebug.collect_params=On
+xdebug.idekey=phpstorm
+xdebug.remote_log=&quot;/tmp/xdebug.log&quot;' &gt;&gt; /usr/local/etc/php/php.ini
+</code></pre>
+<p>将remote_ip替换为远程ip</p>
+<p>php5.6由于mysql，mysqli的扩展为.so文件，而php.ini中为.dll所以需要更改php.ini</p>
+<pre><code>extension=mysql.so
+extension=mysqli.so
+</code></pre>
+<p>php7.4只需删除extension前<code>;</code>即可</p>
+<p>以上步骤完全可以通过docker-compose与Dockerfile实现，出于懒</p>
+<p>咕咕咕🕊</p>
               
             </div>
           </div>
@@ -136,10 +190,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../%E5%8F%91%E8%B4%A2writeup/" class="btn btn-neutral float-right" title="HXB writeup">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../ssh%E9%9A%A7%E9%81%93/" class="btn btn-neutral float-right" title="ssh隧道">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../docker%E5%92%8Cphpstorm%E6%90%AD%E5%BB%BAphp%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="btn btn-neutral" title="docker和phpstorm搭建php开发环境"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href=".." class="btn btn-neutral" title="Welcome to hkkblog"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -165,10 +219,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../docker%E5%92%8Cphpstorm%E6%90%AD%E5%BB%BAphp%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../%E5%8F%91%E8%B4%A2writeup/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../ssh%E9%9A%A7%E9%81%93/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
