@@ -7,11 +7,11 @@
         
         
         
-        <link rel="shortcut icon" href="../img/favicon.ico">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
         <title>初探pickle反序列化 - hkk_blog</title>
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <script src="../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
@@ -39,7 +39,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="..">hkk_blog</a>
+                    <a class="navbar-brand" href="../..">hkk_blog</a>
                 </div>
 
                 <!-- Expanded navigation -->
@@ -47,22 +47,32 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li >
-                                <a href="..">Welcome to hkkblog</a>
+                                <a href="../..">Welcome to hkkblog</a>
                             </li>
-                            <li >
-                                <a href="../[HTB]DT/">[HTB]Docter</a>
-                            </li>
-                            <li >
-                                <a href="../docker和phpstorm搭建php开发环境/">docker和phpstorm搭建php开发环境</a>
-                            </li>
-                            <li >
-                                <a href="../ssh隧道/">ssh隧道</a>
-                            </li>
-                            <li class="active">
-                                <a href="./">初探pickle反序列化</a>
-                            </li>
-                            <li >
-                                <a href="../发财writeup/">HXB writeup</a>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Articl <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../[HTB]DT/">[HTB]Docter</a>
+</li>
+                                    
+<li >
+    <a href="../docker和phpstorm搭建php开发环境/">docker和phpstorm搭建php开发环境</a>
+</li>
+                                    
+<li >
+    <a href="../ssh隧道/">ssh隧道</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">初探pickle反序列化</a>
+</li>
+                                    
+<li >
+    <a href="../发财writeup/">HXB writeup</a>
+</li>
+                                </ul>
                             </li>
                         </ul>
 
@@ -113,7 +123,7 @@ test=b'\x80\x03c__main__\nTest\nq\x00)\x81q\x01}q\x02X\x04\x00\x00\x00testq\x03X
 print(pickletools.dis(test))
 </code></pre>
 
-<p><img alt="image-pick1" src="../img/image-pick1.png" /></p>
+<p><img alt="image-pick1" src="../../img/image-pick1.png" /></p>
 <h3 id="_1">漏洞利用</h3>
 <blockquote>
 <p>变量覆盖</p>
@@ -432,11 +442,11 @@ print(urllib.quote(pickle.dumps(AdminHandler())))
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = "..",
+            var base_url = "../..",
                 shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
         </script>
-        <script src="../js/base.js" defer></script>
-        <script src="../search/main.js" defer></script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">

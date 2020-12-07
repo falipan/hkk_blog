@@ -7,11 +7,11 @@
         
         
         
-        <link rel="shortcut icon" href="../img/favicon.ico">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
         <title>HXB writeup - hkk_blog</title>
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <script src="../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
@@ -39,7 +39,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="..">hkk_blog</a>
+                    <a class="navbar-brand" href="../..">hkk_blog</a>
                 </div>
 
                 <!-- Expanded navigation -->
@@ -47,22 +47,32 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li >
-                                <a href="..">Welcome to hkkblog</a>
+                                <a href="../..">Welcome to hkkblog</a>
                             </li>
-                            <li >
-                                <a href="../[HTB]DT/">[HTB]Docter</a>
-                            </li>
-                            <li >
-                                <a href="../docker和phpstorm搭建php开发环境/">docker和phpstorm搭建php开发环境</a>
-                            </li>
-                            <li >
-                                <a href="../ssh隧道/">ssh隧道</a>
-                            </li>
-                            <li >
-                                <a href="../初探pickle反序列化/">初探pickle反序列化</a>
-                            </li>
-                            <li class="active">
-                                <a href="./">HXB writeup</a>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Articl <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../[HTB]DT/">[HTB]Docter</a>
+</li>
+                                    
+<li >
+    <a href="../docker和phpstorm搭建php开发环境/">docker和phpstorm搭建php开发环境</a>
+</li>
+                                    
+<li >
+    <a href="../ssh隧道/">ssh隧道</a>
+</li>
+                                    
+<li >
+    <a href="../初探pickle反序列化/">初探pickle反序列化</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">HXB writeup</a>
+</li>
+                                </ul>
                             </li>
                         </ul>
 
@@ -104,17 +114,17 @@
 <h2 id="web">WEB</h2>
 <h3 id="_1">题目名字不重要反正题挺简单的</h3>
 <p>直接传参file=phpinfo，flag被写到环境变量</p>
-<p><img alt="img1" src="../img/img1.png" /></p>
+<p><img alt="img1" src="../../img/img1.png" /></p>
 <h3 id="newwebsite">NewWebsite</h3>
 <p>扫描目录扫到/admin</p>
-<p><img alt="img2" src="../img/img2.png" /></p>
+<p><img alt="img2" src="../../img/img2.png" /></p>
 <p>访问后弱密码admin/admin登录</p>
 <p>发现有?r=manageinfo页面可以上传文件，但文件名被限制，传php3即可绕过，然后antsword连接</p>
-<p><img alt="img3" src="../img/img3.png" /></p>
+<p><img alt="img3" src="../../img/img3.png" /></p>
 <h2 id="cpypto">CPYPTO</h2>
 <h3 id="_2">古典美++</h3>
 <p>题目说是维吉尼亚密码，直接爆破密钥即可</p>
-<p><img alt="img4" src="../img/img4.png" /></p>
+<p><img alt="img4" src="../../img/img4.png" /></p>
 <h2 id="pwn">pwn</h2>
 <h3 id="pwn_printf">pwn_printf</h3>
 <p>栈溢出，通过puts泄露函数地址，计算偏移量得到system函数地址来get shell</p>
@@ -162,16 +172,16 @@ p.interactive()
 
 </code></pre>
 
-<p><img alt="img5" src="../img/pwn.png" /></p>
+<p><img alt="img5" src=".\img\pwn.png" /></p>
 <h2 id="misc">MISC</h2>
 <h3 id="_3">颜文字之谜</h3>
 <p>通过流量分析可以导出index-demo.html
 在源码中发现颜文字</p>
-<p><img alt="img5" src="../img/img5.png" /></p>
+<p><img alt="img5" src=".\img\img5.png" /></p>
 <p>分析流量包，导出index文件，发现存在多余的长短不一的空格和base64加密过的颜文字，感觉有隐写
-<img alt="img_space" src="../img/img_space.png" /></p>
+<img alt="img_space" src="../../img/img_space.png" /></p>
 <p>用stegsnow看一下</p>
-<p><img alt="img_stegsnow" src="../img/img_stegsnow.png" /></p>
+<p><img alt="img_stegsnow" src="../../img/img_stegsnow.png" /></p>
 <p>那么尝试把文件里面隐藏的base64部分利用起来</p>
 <p>网上找个base64隐写脚本</p>
 <pre><code class="python">b64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
@@ -189,7 +199,7 @@ with open('C:/Users/kai/Desktop/base.txt', 'rb') as f:
 
 <p>结果是key:"lorrie"</p>
 <p>解码看看
-<img alt="img_lorrie" src="../img/img_lorrie.png" /></p>
+<img alt="img_lorrie" src="../../img/img_lorrie.png" /></p>
 <p>flag头和尾是对的，乱码感觉像是编码问题，我们把它导出为16进制试试</p>
 <pre><code class="shell">a=`stegsnow  -p &quot;lorrie&quot; index-demo.html `
 echo $a | perl -ne 'printf&quot;%x&quot;, ord for split //'
@@ -197,15 +207,15 @@ echo $a | perl -ne 'printf&quot;%x&quot;, ord for split //'
 
 <p>得到的结果放文件里，再用010导入看看</p>
 <p>默认的ascii编码下依旧是乱码
-<img alt="img_ascii" src="../img/img_ascii.png" /></p>
+<img alt="img_ascii" src="../../img/img_ascii.png" /></p>
 <p>我们在 <strong>view -&gt; character setting</strong> 里面把编码换成gbk或者utf试试</p>
 <p>然后发现gbk下的编码能显示正常的字符，我们复制到txt里
-<img alt="img_left" src="../img/img_left.png" /></p>
+<img alt="img_left" src="../../img/img_left.png" /></p>
 <p>发现是 <code>←_←</code> 和 <code>→_→</code> 构成的颜文字</p>
 <p>有可能是二进制，也有可能是摩斯电码
 经队友提醒，应该是国际电报码</p>
 <p>那我们把 <code>→_→</code> 转成 <code>-</code> ，把 <code>←_←</code> 转成 <code>·</code> ，拿去解码试试</p>
-<p><img alt="img_elc" src="../img/img_elc.png" /></p>
+<p><img alt="img_elc" src="../../img/img_elc.png" /></p>
 <p>成功拿到flag</p>
 <h3 id="passwd">passwd</h3>
 <p>是一道内存取证题，题目要求我们去拿到当前用户的密码</p>
@@ -221,7 +231,7 @@ CTF:1000:aad3b435b51404eeaad3b435b51404ee:0a640404b5c386ab12092587fe19cd02:::</p
 <p>CTF密码ntlm查询出来是qwer1234，然后MD5就是flag</p>
 <h3 id="_4">虚实之间</h3>
 <p>看上去是明文攻击，但是flag.txt是强加密的，估计明文攻击无效</p>
-<p><img alt="img_zip" src="../img/img_zip.png" /></p>
+<p><img alt="img_zip" src="../../img/img_zip.png" /></p>
 <p>干脆字典爆出压缩包密码
 <code>123%asd!O</code>
 然后栅栏密码解码得到flag</p>
@@ -231,7 +241,7 @@ CTF:1000:aad3b435b51404eeaad3b435b51404ee:0a640404b5c386ab12092587fe19cd02:::</p
 </code></pre>
 
 <p>用diskgenius打开导出的dmp文件可以看到</p>
-<p><img alt="img6" src="../img/img6.png" /></p>
+<p><img alt="img6" src=".\img\img6.png" /></p>
 <pre><code class="shell">python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 printkey -K &quot;SAM\Domains\Account\Users\Names&quot;
 </code></pre>
 
@@ -246,8 +256,8 @@ python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 timeliner &gt; ./my_
 <p>发现这个电脑权限都是写在用户组里面的，常规用户应该都是<code>S-1-5-18</code>这个用户组的</p>
 <p>但是看不到具体是哪些用户进行的操作，是我太菜了</p>
 <p>复现的时候发现 <code>SAM\Domains\Account\Users\Names</code> 这个注册表目录下存在所有用户，查看用户的键值，可以发现存在一个注册表最后修改的时间</p>
-<p><img alt="img_subkeys" src="../img/img_subkeys.png" /></p>
-<p><img alt="img_regtime" src="../img/img_regtime.png" /></p>
+<p><img alt="img_subkeys" src="../../img/img_subkeys.png" /></p>
+<p><img alt="img_regtime" src="../../img/img_regtime.png" /></p>
 <p>查看几个用户，发现他们的修改时间都在 14:02 这个时间
 而整个表的最后修改时间是在 14:07 之后，所以只需要把 14:07 修改注册表的用户找出来就行了，搓个脚本</p>
 <pre><code class="python"># coding=utf-8
@@ -275,7 +285,7 @@ for i in user_list:
 </code></pre>
 
 <p>文件路径需要根据具体情况进行修改
-<img alt="img_AI" src="../img/img_AI.png" /></p>
+<img alt="img_AI" src="../../img/img_AI.png" /></p>
 <p>十几分钟大概可以出来</p>
 <h2 id="re">RE</h2>
 <h3 id="easy_c">easy_c++</h3>
@@ -355,11 +365,11 @@ if __name__ == &quot;__main__&quot;:
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = "..",
+            var base_url = "../..",
                 shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
         </script>
-        <script src="../js/base.js" defer></script>
-        <script src="../search/main.js" defer></script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">
