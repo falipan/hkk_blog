@@ -9,98 +9,89 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
         <title>HXB writeup - hkk_blog</title>
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
         <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../..">hkk_blog</a>
-                </div>
+                <a class="navbar-brand" href="../..">hkk_blog</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
+                <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../..">Welcome to hkkblog</a>
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Welcome to hkkblog</a>
                             </li>
                             <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Articl <b class="caret"></b></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Articl <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li >
-    <a href="../DASCTF/">DASCTF</a>
+<li>
+    <a href="../DASCTF/" class="dropdown-item">DASCTF</a>
 </li>
                                     
-<li >
-    <a href="../[HTB]DT/">[HTB]Docter</a>
+<li>
+    <a href="../VNctf2021wp/" class="dropdown-item">VNctf2021</a>
 </li>
                                     
-<li >
-    <a href="../[HTB]Laboratory/">[HTB]Laboratory</a>
+<li>
+    <a href="../%5BHTB%5DDT/" class="dropdown-item">[HTB]Docter</a>
 </li>
                                     
-<li >
-    <a href="../docker和phpstorm搭建php开发环境/">docker和phpstorm搭建php开发环境</a>
+<li>
+    <a href="../%5BHTB%5DLaboratory/" class="dropdown-item">[HTB]Laboratory</a>
 </li>
                                     
-<li >
-    <a href="../isoon/">ISOON</a>
+<li>
+    <a href="../docker%E5%92%8Cphpstorm%E6%90%AD%E5%BB%BAphp%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="dropdown-item">docker和phpstorm搭建php开发环境</a>
 </li>
                                     
-<li >
-    <a href="../ssh隧道/">ssh隧道</a>
+<li>
+    <a href="../isoon/" class="dropdown-item">ISOON</a>
 </li>
                                     
-<li >
-    <a href="../初探pickle反序列化/">初探pickle反序列化</a>
+<li>
+    <a href="../ssh%E9%9A%A7%E9%81%93/" class="dropdown-item">ssh隧道</a>
 </li>
                                     
-<li class="active">
-    <a href="./">HXB writeup</a>
+<li>
+    <a href="../%E5%88%9D%E6%8E%A2pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" class="dropdown-item">初探pickle反序列化</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">HXB writeup</a>
 </li>
                                 </ul>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li >
-                                <a rel="next" href="../初探pickle反序列化/">
+                            <li class="nav-item">
+                                <a rel="prev" href="../%E5%88%9D%E6%8E%A2pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
-                            <li class="disabled">
-                                <a rel="prev" >
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -110,17 +101,46 @@
         </div>
 
         <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#hxb-writeup">HXB writeup</a></li>
-            <li><a href="#web">WEB</a></li>
-            <li><a href="#cpypto">CPYPTO</a></li>
-            <li><a href="#pwn">pwn</a></li>
-            <li><a href="#misc">MISC</a></li>
-            <li><a href="#re">RE</a></li>
-    </ul>
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#hxb-writeup" class="nav-link">HXB writeup</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#web" class="nav-link">WEB</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#cpypto" class="nav-link">CPYPTO</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#pwn" class="nav-link">pwn</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#misc" class="nav-link">MISC</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#re" class="nav-link">RE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
 </div></div>
-                <div class="col-md-9" role="main">
+                    <div class="col-md-9" role="main">
 
 <h1 id="hxb-writeup">HXB writeup</h1>
 <h2 id="web">WEB</h2>
@@ -141,7 +161,7 @@
 <h3 id="pwn_printf">pwn_printf</h3>
 <p>栈溢出，通过puts泄露函数地址，计算偏移量得到system函数地址来get shell</p>
 <p>exp如下：</p>
-<pre><code class="python">from pwn import *
+<pre><code class="language-python">from pwn import *
 context.log_level = 'debug'
 p = remote('47.111.104.169',56706)
 elf = ELF('./pwn_printf')
@@ -183,20 +203,19 @@ p.sendline(payload4)
 p.interactive()
 
 </code></pre>
-
-<p><img alt="img5" src=".\img\pwn.png" /></p>
+<p><img alt="img5" src="../../img/pwn.png" /></p>
 <h2 id="misc">MISC</h2>
 <h3 id="_3">颜文字之谜</h3>
 <p>通过流量分析可以导出index-demo.html
 在源码中发现颜文字</p>
-<p><img alt="img5" src=".\img\img5.png" /></p>
+<p><img alt="img5" src="../../img/img5.png" /></p>
 <p>分析流量包，导出index文件，发现存在多余的长短不一的空格和base64加密过的颜文字，感觉有隐写
 <img alt="img_space" src="../../img/img_space.png" /></p>
 <p>用stegsnow看一下</p>
 <p><img alt="img_stegsnow" src="../../img/img_stegsnow.png" /></p>
 <p>那么尝试把文件里面隐藏的base64部分利用起来</p>
 <p>网上找个base64隐写脚本</p>
-<pre><code class="python">b64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+<pre><code class="language-python">b64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 with open('C:/Users/kai/Desktop/base.txt', 'rb') as f:
     bin_str = ''
     for line in f.readlines():
@@ -208,15 +227,13 @@ with open('C:/Users/kai/Desktop/base.txt', 'rb') as f:
             bin_str += bin(offset)[2:].zfill(equalnum * 2)
         print ''.join([chr(int(bin_str[i:i + 8], 2)) for i in xrange(0, len(bin_str), 8)])
 </code></pre>
-
 <p>结果是key:"lorrie"</p>
 <p>解码看看
 <img alt="img_lorrie" src="../../img/img_lorrie.png" /></p>
 <p>flag头和尾是对的，乱码感觉像是编码问题，我们把它导出为16进制试试</p>
-<pre><code class="shell">a=`stegsnow  -p &quot;lorrie&quot; index-demo.html `
+<pre><code class="language-shell">a=`stegsnow  -p &quot;lorrie&quot; index-demo.html `
 echo $a | perl -ne 'printf&quot;%x&quot;, ord for split //'
 </code></pre>
-
 <p>得到的结果放文件里，再用010导入看看</p>
 <p>默认的ascii编码下依旧是乱码
 <img alt="img_ascii" src="../../img/img_ascii.png" /></p>
@@ -231,9 +248,8 @@ echo $a | perl -ne 'printf&quot;%x&quot;, ord for split //'
 <p>成功拿到flag</p>
 <h3 id="passwd">passwd</h3>
 <p>是一道内存取证题，题目要求我们去拿到当前用户的密码</p>
-<pre><code class="shell">python vol.py -f ./my_mem/passwd.raw --profile=Win7SP1x86_23418 hashdump
+<pre><code class="language-shell">python vol.py -f ./my_mem/passwd.raw --profile=Win7SP1x86_23418 hashdump
 </code></pre>
-
 <blockquote>
 <p>Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
@@ -249,22 +265,19 @@ CTF:1000:aad3b435b51404eeaad3b435b51404ee:0a640404b5c386ab12092587fe19cd02:::</p
 然后栅栏密码解码得到flag</p>
 <h3 id="_5">隐藏的秘密</h3>
 <p>查看进程，发现notepad.exe，pid为2440，不过内容是乱码的，估计存在编码问题，那我们干脆把进程导出</p>
-<pre><code class="shell">python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 memdump -p 2440 -D ./my_mem/out/hxb
+<pre><code class="language-shell">python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 memdump -p 2440 -D ./my_mem/out/hxb
 </code></pre>
-
 <p>用diskgenius打开导出的dmp文件可以看到</p>
 <p><img alt="img6" src=".\img\img6.png" /></p>
-<pre><code class="shell">python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 printkey -K &quot;SAM\Domains\Account\Users\Names&quot;
+<pre><code class="language-shell">python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 printkey -K &quot;SAM\Domains\Account\Users\Names&quot;
 </code></pre>
-
 <p>于是导出用户名和密码，批量解NTLM，最后尝试密码为<code>NIAIWOMA</code>的账户和密码MD5
 是flag</p>
 <p>再看一下日志</p>
-<pre><code class="shell">python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 evtlogs -D ./my_mem/out/hxb
+<pre><code class="language-shell">python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 evtlogs -D ./my_mem/out/hxb
 
 python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 timeliner &gt; ./my_mem/out/hxb
 </code></pre>
-
 <p>发现这个电脑权限都是写在用户组里面的，常规用户应该都是<code>S-1-5-18</code>这个用户组的</p>
 <p>但是看不到具体是哪些用户进行的操作，是我太菜了</p>
 <p>复现的时候发现 <code>SAM\Domains\Account\Users\Names</code> 这个注册表目录下存在所有用户，查看用户的键值，可以发现存在一个注册表最后修改的时间</p>
@@ -272,7 +285,7 @@ python vol.py -f ./my_mem/hide.vmem --profile=Win2003SP1x86 timeliner &gt; ./my_
 <p><img alt="img_regtime" src="../../img/img_regtime.png" /></p>
 <p>查看几个用户，发现他们的修改时间都在 14:02 这个时间
 而整个表的最后修改时间是在 14:07 之后，所以只需要把 14:07 修改注册表的用户找出来就行了，搓个脚本</p>
-<pre><code class="python"># coding=utf-8
+<pre><code class="language-python"># coding=utf-8
 import os
 
 hide_mem = &quot;../my_mem/hide.vmem&quot;
@@ -295,24 +308,22 @@ for i in user_list:
     if &quot;14:02:09&quot; not in output:
         print(i)
 </code></pre>
-
 <p>文件路径需要根据具体情况进行修改
 <img alt="img_AI" src="../../img/img_AI.png" /></p>
 <p>十几分钟大概可以出来</p>
 <h2 id="re">RE</h2>
 <h3 id="easy_c">easy_c++</h3>
 <p>简单异或直接脚本跑</p>
-<pre><code class="python">a=&quot;7d21e&lt;e3&lt;:3;9;ji t r#w\&quot;$*{*+*$|,&quot;
+<pre><code class="language-python">a=&quot;7d21e&lt;e3&lt;:3;9;ji t r#w\&quot;$*{*+*$|,&quot;
 b=&quot;&quot;
 for i in range(len(a)):
     b+=chr(ord(a[i])^i)
 print(b)
 </code></pre>
-
 <h3 id="easyre">easyre</h3>
 <p>动态调试，一位一位爆出来</p>
 <h3 id="reme">ReMe</h3>
-<pre><code class="python">import hashlib
+<pre><code class="language-python">import hashlib
 
 list = [
  'e5438e78ec1de10a2693f9cffb930d23',
@@ -368,8 +379,8 @@ if __name__ == &quot;__main__&quot;:
             if md5 == list[line]:
                 print line,'-&gt;',chr(i)
 </code></pre>
-
 <p>然后按顺序排序MD5即可</p></div>
+            </div>
         </div>
 
         <footer class="col-md-12">
@@ -378,26 +389,26 @@ if __name__ == &quot;__main__&quot;:
         </footer>
         <script>
             var base_url = "../..",
-                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js" defer></script>
         <script src="../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
                 <p>
                     From here you can search these documents. Enter
                     your search terms below.
                 </p>
-                <form role="form">
+                <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
                 <div id="mkdocs-search-results"></div>
@@ -406,12 +417,12 @@ if __name__ == &quot;__main__&quot;:
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">

