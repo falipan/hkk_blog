@@ -65,6 +65,10 @@
 </li>
                                     
 <li>
+    <a href="../java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" class="dropdown-item">初探java反序列化</a>
+</li>
+                                    
+<li>
     <a href="../ssh%E9%9A%A7%E9%81%93/" class="dropdown-item">ssh隧道</a>
 </li>
                                     
@@ -124,90 +128,12 @@
 
 <h1 id="dockerphpstormphp">docker和phpstorm搭建php开发环境</h1>
 <p>首先docker-compose启动php5.6、php7.4、mysql5.6三个容器，并建立连接</p>
-<pre><code>version: '3'
-services:
-    php5.6:
-        image: php:5.6-apache 
-        ports: 
-            - 8000:80 
-        volumes: 
-            [localfile:/var/www/html]
-        links: 
-            - mysql
-        stdin_open: true
-        tty: true
-    php7.4:          
-        image: php:7.4-apache  
-        ports: 
-            - 80:80 
-        volumes: 
-            [localfile:/var/www/html]
-        links: 
-            - mysql 
-        stdin_open: true
-        tty: true
-
-    mysql:
-        image: mysql:5.6
-        environment: 
-            MYSQL_ROOT_PASSWORD: &quot;313807&quot;
-        ports: 
-            - 3306:3306
-
-</code></pre>
-<p>服务起来后</p>
-<p>进入php5.6与php7.4容器更新并安装vim</p>
-<blockquote>
-<p>apt update</p>
-<p>apt install vim</p>
-</blockquote>
-<p>将php-ini-production复制到php.ini</p>
-<blockquote>
-<p>cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini</p>
-</blockquote>
-<p>docker中安装php扩展使用命令</p>
-<blockquote>
-<p>docker-php-ext-install</p>
-</blockquote>
-<p>php启动扩展</p>
-<blockquote>
-<p>docker-php-ext-enable</p>
-</blockquote>
-<p>安装mysql与mysqli扩展</p>
-<blockquote>
-<p>docker-php-ext-install mysql</p>
-<p>docker-php-ext-install mysqli</p>
-</blockquote>
-<p>安装xdebug扩展</p>
-<blockquote>
-<p>pecl install xdebug</p>
-<p>pecl install xdebug-2.5.0(5.6需安装此版本)</p>
-</blockquote>
-<p>启动php扩展</p>
-<blockquote>
-<p>docker-php-ext-enable mysql</p>
-<p>docker-php-ext-enable mysqli</p>
-<p>docker-php-ext-enable xdebug</p>
-</blockquote>
-<p>配置php.ini</p>
-<pre><code>echo -e 'xdebug.remote_enable=On
-xdebug.remote_host= [remote_ip]
-xdebug.remote_port=9000
-xdebug.auto_trace=On
-xdebug.collect_vars=On
-xdebug.collect_return=On
-xdebug.collect_params=On
-xdebug.idekey=phpstorm
-xdebug.remote_log=&quot;/tmp/xdebug.log&quot;' &gt;&gt; /usr/local/etc/php/php.ini
-</code></pre>
-<p>将remote_ip替换为远程ip</p>
-<p>php5.6由于mysql，mysqli的扩展为.so文件，而php.ini中为.dll所以需要更改php.ini</p>
-<pre><code>extension=mysql.so
-extension=mysqli.so
-</code></pre>
-<p>php7.4只需删除extension前<code>;</code>即可</p>
+<p><img alt="image-20210319185351082" src="../../img/image-20210319185351082.png" /></p>
+<p><img alt="image-20210319185303646" src="../../img/image-20210319185303646.png" /></p>
 <p>以上步骤完全可以通过docker-compose与Dockerfile实现，出于懒</p>
-<p>咕咕咕🕊</p></div>
+<p>咕咕咕🕊</p>
+<p>咕咕咕结束</p>
+<p><a href="https://github.com/falipan/phpstorm-docker-php-mysql">送上github项目</a></p></div>
             </div>
         </div>
 

